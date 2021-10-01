@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css">         
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>       
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+        <script src="JavaScript/Ventana_Principal.js"></script>
+        <script src="JavaScript/Beca_Municipal.js"></script>
+    </head>
+
+    <body>
+        <div class="container" style="width:100% " >
+            <form>
+
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Nombre completo del solicitante</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Ingrese su nombre completo">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Cédula</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Ingrese su cédula">
+                </div>
+                
+                 <div class="form-group">
+                    <label for="exampleFormControlInput1">Fecha de nacimiento</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Fecha de nacimiento">
+                </div>
+                
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Centro educativo al que asiste</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Centro educativo al que asiste">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Ingrese su dirección de residencia</label>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Seleccione su distrito</label>
+                        <select class="form-control" id="exampleFormControlSelect1" onchange = "cargar_Barrios()">
+                            <option> - </option>
+                            <option>San Pablo</option>
+                            <option>Rincón de Sabanilla</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Seleccione su barrio</label>
+                        <select class="form-control" id="exampleFormControlSelect2" >
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Ingrese la dirección por señas de su residencia </label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Ingrese la dirección por señas de su residencia">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Nombre de la madre</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Nombre de la madre">
+                </div>
+                
+                 <div class="form-group">
+                    <label for="exampleFormControlInput1">Cédula de la madre</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Cédula de la madre">
+                </div>
+                
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Nombre del padre</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Nombre del padre">
+                </div>
+                
+                 <div class="form-group">
+                    <label for="exampleFormControlInput1">Cédula del padre</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Cédula del padre">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Enviar mi solicitud</button>
+
+            </form>
+        </div>
+    </body>
+</html>
