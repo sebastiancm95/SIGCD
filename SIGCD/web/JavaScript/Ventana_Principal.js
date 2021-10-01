@@ -27,5 +27,3 @@ var Ventana_Principal = `
                 }
 
 $(loadMenu);
-
-        

@@ -5,8 +5,9 @@ import SIGCD.Logic.Formulario.Ayuda_Temporal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
-public class Ayuda_Tempora_Dao {
+public class Ayuda_Temporal_Dao {
 
     public Ayuda_Temporal read(int id) throws Exception {
         String sql = "select * from formularioA where id_Formulario=?";
@@ -75,18 +76,17 @@ public class Ayuda_Tempora_Dao {
 //        }
 //        return u;
 //    }
-//
-//    public ArrayList<Pelicula> readAll() throws Exception {
-//        String sql = "SELECT * from pelicula;";
-//        PreparedStatement stm = Database.instance().prepareStatement(sql);
-//        ResultSet rs = Database.instance().executeQuery(stm);
-//        ArrayList<Pelicula> listaPeliculas = new ArrayList<Pelicula>();
-//        while (rs.next()) {
-//            listaPeliculas.add(from(rs));
-//        }
-//        return listaPeliculas;
-//    }
-//
-//    public void close() {
-//    }
+    public ArrayList<Ayuda_Temporal> readAll() throws Exception {
+        String sql = "SELECT * from pelicula;";
+        PreparedStatement stm = Database.instance().prepareStatement(sql);
+        ResultSet rs = Database.instance().executeQuery(stm);
+        ArrayList<Ayuda_Temporal> OLista_Ayuda_Temporal = new ArrayList<Ayuda_Temporal>();
+        while (rs.next()) {
+            OLista_Ayuda_Temporal.add(from(rs));
+        }
+        return OLista_Ayuda_Temporal;
+    }
+
+    public void close() {
+    }
 }

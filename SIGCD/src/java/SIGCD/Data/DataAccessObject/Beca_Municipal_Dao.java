@@ -1,10 +1,11 @@
+package SIGCD.Data.DataAccessObject;
 
-import SIGCD.Data.DataAccessObject.Database;
 import SIGCD.Logic.Direccion.Direccion;
 import SIGCD.Logic.Formulario.Beca_Municipal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Beca_Municipal_Dao {
 
@@ -86,17 +87,17 @@ public class Beca_Municipal_Dao {
 //        return u;
 //    }
 //
-//    public ArrayList<Pelicula> readAll() throws Exception {
-//        String sql = "SELECT * from pelicula;";
-//        PreparedStatement stm = Database.instance().prepareStatement(sql);
-//        ResultSet rs = Database.instance().executeQuery(stm);
-//        ArrayList<Pelicula> listaPeliculas = new ArrayList<Pelicula>();
-//        while (rs.next()) {
-//            listaPeliculas.add(from(rs));
-//        }
-//        return listaPeliculas;
-//    }
-//
-//    public void close() {
-//    }
+    public ArrayList<Beca_Municipal> readAll() throws Exception {
+        String sql = "SELECT * from pelicula;";
+        PreparedStatement stm = Database.instance().prepareStatement(sql);
+        ResultSet rs = Database.instance().executeQuery(stm);
+        ArrayList<Beca_Municipal> OLista_Beca_Municipal = new ArrayList<Beca_Municipal>();
+        while (rs.next()) {
+            OLista_Beca_Municipal.add(from(rs));
+        }
+        return OLista_Beca_Municipal;
+    }
+
+    public void close() {
+    }
 }
