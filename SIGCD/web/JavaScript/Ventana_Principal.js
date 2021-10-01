@@ -6,26 +6,26 @@ var Ventana_Principal = `
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Inicio<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index.html">Inicio<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Ayudas
-                </a>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tipo de ayudas</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="Ayuda_Temporal.html">Temporales</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Becas estudiantiles</a>
+                    <a class="dropdown-item" href="Beca_Municipal.html">Becas estudiantiles</a>
                 </div>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="Estado_Solicitud.html">Ver estado de mi solicitud<span class="sr-only">(current)</span></a>
             </li>
     </div>
 </nav>
 `;
+        function loadMenu() {
+        $('body').prepend(Ventana_Principal);
+                }
 
-function loadMenu() {
-    $('body').prepend(Ventana_Principal);
-}
-
-$(loadMenu);  
+$(loadMenu);
 
         

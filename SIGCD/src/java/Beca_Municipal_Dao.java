@@ -1,5 +1,5 @@
-package SIGCD.Data.DataAccessObject;
 
+import SIGCD.Data.DataAccessObject.Database;
 import SIGCD.Logic.Direccion.Direccion;
 import SIGCD.Logic.Formulario.Beca_Municipal;
 import java.sql.PreparedStatement;
