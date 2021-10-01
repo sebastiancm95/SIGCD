@@ -2,45 +2,45 @@ package SIGCD.Logic.Direccion;
 
 public class Direccion {
 
-    private String distrito;
-    private String barrio;
-    private String direccionExacta;
+    private String Sdistrito;
+    private String Sbarrio;
+    private String Sdireccion_Exacta;
 
     public Direccion() {
     }
 
-    public Direccion(String distrito, String barrio, String direccionExacta) {
-        this.distrito = distrito;
-        this.barrio = barrio;
-        this.direccionExacta = direccionExacta;
+    public Direccion(String Sdistrito, String Sbarrio, String Sdireccion_Exacta) {
+        this.Sdistrito = Sdistrito;
+        this.Sbarrio = Sbarrio;
+        this.Sdireccion_Exacta = Sdireccion_Exacta;
     }
 
     public String getDistrito() {
-        return distrito;
+        return Sdistrito;
     }
 
-    public void setDistrito(String distrito) {
-        this.distrito = distrito;
+    public void setDistrito(String Sdistrito) {
+        this.Sdistrito = Sdistrito;
     }
 
     public String getBarrio() {
-        return barrio;
+        return Sbarrio;
     }
 
-    public void setBarrio(String barrio) {
-        this.barrio = barrio;
+    public void setBarrio(String Sbarrio) {
+        this.Sbarrio = Sbarrio;
     }
 
-    public String getDireccionExacta() {
-        return direccionExacta;
+    public String getDireccion_Exacta() {
+        return Sdireccion_Exacta;
     }
 
-    public void setDireccionExacta(String direccionExacta) {
-        this.direccionExacta = direccionExacta;
+    public void setDireccion_Exacta(String Sdireccion_Exacta) {
+        this.Sdireccion_Exacta = Sdireccion_Exacta;
     }
 
     @Override
     public String toString() {
-        return "Direccion{" + "distrito=" + distrito + ", barrio=" + barrio + ", direccionExacta=" + direccionExacta + '}';
+        return "Direccion{" + "distrito=" + Sdistrito + ", barrio=" + Sbarrio + ", direccionExacta=" + Sdireccion_Exacta + '}';
     }
 }

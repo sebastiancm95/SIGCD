@@ -4,60 +4,65 @@ import SIGCD.Logic.Direccion.Direccion;
 
 public class Formulario {
 
-    private String cedula;
-    private String nombreCompleto;
-    private Direccion direccion;
-    private String telefonoHabitacion;
-    private String telefonoCelular;
-     
+    private String SCedula;
+    private String SNombre_Completo;
+    private Direccion ODireccion;
+    private String STelefono_Habitacion;
+    private String STelefono_Celular;
+
     public Formulario() {
     }
 
-    public Formulario(String cedula, String nombreCompleto, Direccion direccion, String telefonoHabitacion, String telefonoCelular) {
-        this.cedula = cedula;
-        this.nombreCompleto = nombreCompleto;
-        this.direccion = direccion;
-        this.telefonoHabitacion = telefonoHabitacion;
-        this.telefonoCelular = telefonoCelular;
+    public Formulario(String SCedula, String SNombre_Completo, Direccion ODireccion, String STelefono_Habitacion, String STelefono_Celular) {
+        this.SCedula = SCedula;
+        this.SNombre_Completo = SNombre_Completo;
+        this.ODireccion = ODireccion;
+        this.STelefono_Habitacion = STelefono_Habitacion;
+        this.STelefono_Celular = STelefono_Celular;
     }
 
-    public String getCedula() {
-        return cedula;
+    public String getSCedula() {
+        return SCedula;
     }
 
-    public void setCedula(String cedula) {
-        this.cedula = cedula;
+    public void setSCedula(String SCedula) {
+        this.SCedula = SCedula;
     }
 
-    public String getNombreCompleto() {
-        return nombreCompleto;
+    public String getSNombre_Completo() {
+        return SNombre_Completo;
     }
 
-    public void setNombreCompleto(String nombreCompleto) {
-        this.nombreCompleto = nombreCompleto;
+    public void setSNombre_Completo(String SNombre_Completo) {
+        this.SNombre_Completo = SNombre_Completo;
     }
 
-    public Direccion getDireccion() {
-        return direccion;
+    public Direccion getODireccion() {
+        return ODireccion;
     }
 
-    public void setDireccion(Direccion direccion) {
-        this.direccion = direccion;
+    public void setODireccion(Direccion ODireccion) {
+        this.ODireccion = ODireccion;
     }
 
-    public String getTelefonoHabitacion() {
-        return telefonoHabitacion;
+    public String getSTelefono_Habitacion() {
+        return STelefono_Habitacion;
     }
 
-    public void setTelefonoHabitacion(String telefonoHabitacion) {
-        this.telefonoHabitacion = telefonoHabitacion;
+    public void setSTelefono_Habitacion(String STelefono_Habitacion) {
+        this.STelefono_Habitacion = STelefono_Habitacion;
     }
 
-    public String getTelefonoCelular() {
-        return telefonoCelular;
+    public String getSTelefono_Celular() {
+        return STelefono_Celular;
     }
 
-    public void setTelefonoCelular(String telefonoCelular) {
-        this.telefonoCelular = telefonoCelular;
+    public void setSTelefono_Celular(String STelefono_Celular) {
+        this.STelefono_Celular = STelefono_Celular;
+    }
+
+    @Override
+    public String toString() {
+        return "Formulario{" + "SCedula=" + SCedula + ", SNombre_Completo=" + SNombre_Completo + ", ODireccion=" + ODireccion + ", STelefono_Habitacion=" + STelefono_Habitacion + ", STelefono_Celular=" + STelefono_Celular + '}';
     }
 }
