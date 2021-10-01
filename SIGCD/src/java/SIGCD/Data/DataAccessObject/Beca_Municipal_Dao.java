@@ -47,6 +47,7 @@ public class Beca_Municipal_Dao {
         PreparedStatement ps = null;
         Database db = Database.instance();
         ps = db.getConnection().prepareStatement(sql);
+        ps.setInt(1, OBeca_Municipal.getId());
         ps.setString(1, OBeca_Municipal.getCedula());
         ps.setString(2, OBeca_Municipal.getNombre_Completo());
         ps.setObject(3, (Direccion) OBeca_Municipal.getDireccion());

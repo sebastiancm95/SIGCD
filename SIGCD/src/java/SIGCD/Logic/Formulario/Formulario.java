@@ -3,24 +3,36 @@ package SIGCD.Logic.Formulario;
 import SIGCD.Logic.Direccion.Direccion;
 
 public class Formulario {
-
+    
+    private int Id;
     private String SCedula;
     private String SNombre_Completo;
     private Direccion ODireccion;
     private String STelefono_Habitacion;
     private String STelefono_Celular;
+    private String SEstado;
 
     public Formulario() {
     }
 
-    public Formulario(String SCedula, String SNombre_Completo, Direccion ODireccion, String STelefono_Habitacion, String STelefono_Celular) {
+    public Formulario(int Id, String SCedula, String SNombre_Completo, Direccion ODireccion, String STelefono_Habitacion, String STelefono_Celular) {
+        this.Id = Id;
         this.SCedula = SCedula;
         this.SNombre_Completo = SNombre_Completo;
         this.ODireccion = ODireccion;
         this.STelefono_Habitacion = STelefono_Habitacion;
         this.STelefono_Celular = STelefono_Celular;
+        this.SEstado = "En proceso de revisión";
+    }
+    
+    public int getId() {
+        return Id;
     }
 
+    public void setId(int Id) {
+        this.Id = Id;
+    }
+    
     public String getCedula() {
         return SCedula;
     }
@@ -61,8 +73,11 @@ public class Formulario {
         this.STelefono_Celular = STelefono_Celular;
     }
 
-    @Override
-    public String toString() {
-        return "Formulario{" + "SCedula=" + SCedula + ", SNombre_Completo=" + SNombre_Completo + ", ODireccion=" + ODireccion + ", STelefono_Habitacion=" + STelefono_Habitacion + ", STelefono_Celular=" + STelefono_Celular + '}';
+    public String getSEstado() {
+        return SEstado;
+    }
+
+    public void setSEstado(String SEstado) {
+        this.SEstado = SEstado;
     }
 }
