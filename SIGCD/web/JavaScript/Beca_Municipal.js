@@ -10,11 +10,11 @@ var barriosRinconSabanilla = ["Rincón de Ricardo", "Miraflores", "Calle Cordero
 function cargar_Barrios() {
 
     var distrito;
-    var e = document.getElementById("exampleFormControlSelect1");
+    var e = document.getElementById("distrito_Select");
     distrito = e.options[e.selectedIndex].text;
     console.log(distrito);
     console.log("distrito");
-    var select = document.getElementById("exampleFormControlSelect2");
+    var select = document.getElementById("barrio_Select");
     if (distrito === "San Pablo") {
         for (var i = 0; i < barriosSanPablo.length; i++) {
             select.options[i] = new Option(barriosSanPablo[i], barriosSanPablo[i]);

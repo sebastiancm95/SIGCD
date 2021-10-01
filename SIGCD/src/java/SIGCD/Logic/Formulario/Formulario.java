@@ -3,7 +3,7 @@ package SIGCD.Logic.Formulario;
 import SIGCD.Logic.Direccion.Direccion;
 
 public class Formulario {
-    
+
     private int Id;
     private String SCedula;
     private String SNombre_Completo;
@@ -24,7 +24,7 @@ public class Formulario {
         this.STelefono_Celular = STelefono_Celular;
         this.SEstado = "En proceso de revisión";
     }
-    
+
     public int getId() {
         return Id;
     }
@@ -32,7 +32,7 @@ public class Formulario {
     public void setId(int Id) {
         this.Id = Id;
     }
-    
+
     public String getCedula() {
         return SCedula;
     }

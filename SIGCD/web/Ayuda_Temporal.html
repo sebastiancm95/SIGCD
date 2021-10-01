@@ -19,23 +19,22 @@ and open the template in the editor.
     <body>
         <div class="container" style="width:100% " >
             <form>
-
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">Nombre completo del solicitante</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Ingrese su nombre completo">
+                    <label>Nombre completo del solicitante</label>
+                    <input type="text" class="form-control" id="nombre_Completo_Input" placeholder="Ingrese su nombre completo">
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">Cédula</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Ingrese su cédula">
+                    <label>Número de cédula</label>
+                    <input type="text" class="form-control" id="cedula_Input" placeholder="Ingrese su cédula">
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">Ingrese su dirección de residencia</label>
+                    <label>Dirección de residencia</label>
 
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">Seleccione su distrito</label>
-                        <select class="form-control" id="exampleFormControlSelect1" onchange = "cargar_Barrios()">
+                        <label>Seleccione el distrito</label>
+                        <select class="form-control" id="distrito_Select" onchange = "cargar_Barrios()">
                             <option> - </option>
                             <option>San Pablo</option>
                             <option>Rincón de Sabanilla</option>
@@ -43,28 +42,28 @@ and open the template in the editor.
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">Seleccione su barrio</label>
-                        <select class="form-control" id="exampleFormControlSelect2" >
+                        <label>Seleccione el barrio</label>
+                        <select class="form-control" id="barrio_Select" >
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleFormControlInput1">Ingrese la dirección por señas de su residencia </label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Ingrese la dirección por señas de su residencia">
+                        <label>Ingrese la dirección por señas de su residencia </label>
+                        <input type="text" class="form-control" id="direccion_Senas_Input" placeholder="Ingrese la dirección por señas de su residencia">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Tipo de ayuda que solicita</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <label>Tipo de ayuda que solicita</label>
+                    <textarea class="form-control" id="tipo_Ayuda_Textarea" rows="5"></textarea>
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Motivo por el que solicita la ayuda</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <label>Motivo por el que solicita la ayuda</label>
+                    <textarea class="form-control" id="motivo_Ayuda_Textarea" rows="5"></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Enviar mi solicitud</button>
+                <button type="submit" id="enviarSolicitud" class="btn btn-primary">Enviar mi solicitud</button>
 
             </form>
         </div>
