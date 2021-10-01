@@ -21,43 +21,43 @@ public class Formulario {
         this.STelefono_Celular = STelefono_Celular;
     }
 
-    public String getSCedula() {
+    public String getCedula() {
         return SCedula;
     }
 
-    public void setSCedula(String SCedula) {
+    public void setCedula(String SCedula) {
         this.SCedula = SCedula;
     }
 
-    public String getSNombre_Completo() {
+    public String getNombre_Completo() {
         return SNombre_Completo;
     }
 
-    public void setSNombre_Completo(String SNombre_Completo) {
+    public void setNombre_Completo(String SNombre_Completo) {
         this.SNombre_Completo = SNombre_Completo;
     }
 
-    public Direccion getODireccion() {
+    public Direccion getDireccion() {
         return ODireccion;
     }
 
-    public void setODireccion(Direccion ODireccion) {
+    public void setDireccion(Direccion ODireccion) {
         this.ODireccion = ODireccion;
     }
 
-    public String getSTelefono_Habitacion() {
+    public String getTelefono_Habitacion() {
         return STelefono_Habitacion;
     }
 
-    public void setSTelefono_Habitacion(String STelefono_Habitacion) {
+    public void setTelefono_Habitacion(String STelefono_Habitacion) {
         this.STelefono_Habitacion = STelefono_Habitacion;
     }
 
-    public String getSTelefono_Celular() {
+    public String getTelefono_Celular() {
         return STelefono_Celular;
     }
 
-    public void setSTelefono_Celular(String STelefono_Celular) {
+    public void setTelefono_Celular(String STelefono_Celular) {
         this.STelefono_Celular = STelefono_Celular;
     }
 
