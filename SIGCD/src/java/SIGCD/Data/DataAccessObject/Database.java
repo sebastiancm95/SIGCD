@@ -22,7 +22,7 @@ public class Database {
         return theInstance;
     }
 
-    public static final String PROPERTIES_FILE_NAME = "/db.properties";
+    public static final String PROPERTIES_FILE_NAME = "/Database.properties";
     Connection cnx;
 
     public Database() {

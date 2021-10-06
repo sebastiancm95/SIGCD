@@ -24,6 +24,6 @@ var Ventana_Principal = `
 `;
         function loadMenu() {
         $('body').prepend(Ventana_Principal);
-                }
+        }
 
 $(loadMenu);
