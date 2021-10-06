@@ -25,7 +25,9 @@ public class Ayuda_Temporal_Dao {
         try {
             Ayuda_Temporal OAyuda_Temporal = new Ayuda_Temporal();
             OAyuda_Temporal.setCedula(rs.getString(""));
-            OAyuda_Temporal.setNombre_Completo(rs.getString(""));
+            OAyuda_Temporal.setNombre(rs.getString(""));
+            OAyuda_Temporal.setPrimer_Apellido(rs.getString(""));
+            OAyuda_Temporal.setSegundo_Apellido(rs.getString(""));
             OAyuda_Temporal.setDireccion((Direccion) rs.getObject(""));
             OAyuda_Temporal.setTelefono_Habitacion(rs.getString(""));
             OAyuda_Temporal.setTelefono_Celular(rs.getString(""));
@@ -44,12 +46,14 @@ public class Ayuda_Temporal_Dao {
         ps = db.getConnection().prepareStatement(sql);
         ps.setInt(1, OAyuda_Temporal.getId());
         ps.setString(2, OAyuda_Temporal.getCedula());
-        ps.setString(3, OAyuda_Temporal.getNombre_Completo());
-        ps.setObject(4, (Direccion) OAyuda_Temporal.getDireccion());
-        ps.setString(5, OAyuda_Temporal.getTelefono_Habitacion());
-        ps.setString(6, OAyuda_Temporal.getTelefono_Celular());
-        ps.setString(7, OAyuda_Temporal.getTipo_Ayuda());
-        ps.setString(8, OAyuda_Temporal.getMotivo_Ayuda());
+        ps.setString(3, OAyuda_Temporal.getNombre());
+        ps.setString(4, OAyuda_Temporal.getPrimer_Apellido());
+        ps.setString(5, OAyuda_Temporal.getSegundo_Apellido());
+        ps.setObject(6, (Direccion) OAyuda_Temporal.getDireccion());
+        ps.setString(7, OAyuda_Temporal.getTelefono_Habitacion());
+        ps.setString(8, OAyuda_Temporal.getTelefono_Celular());
+        ps.setString(9, OAyuda_Temporal.getTipo_Ayuda());
+        ps.setString(10, OAyuda_Temporal.getMotivo_Ayuda());
         if (ps.executeUpdate() > 0) {
             return true;
         }

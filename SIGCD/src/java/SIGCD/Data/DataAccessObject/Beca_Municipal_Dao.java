@@ -25,7 +25,9 @@ public class Beca_Municipal_Dao {
         try {
             Beca_Municipal OBeca_Municipal = new Beca_Municipal();
             OBeca_Municipal.setCedula(rs.getString(""));
-            OBeca_Municipal.setNombre_Completo(rs.getString(""));
+            OBeca_Municipal.setNombre(rs.getString(""));
+            OBeca_Municipal.setPrimer_Apellido(rs.getString(""));
+            OBeca_Municipal.setSegundo_Apellido(rs.getString(""));
             OBeca_Municipal.setDireccion((Direccion) rs.getObject(""));
             OBeca_Municipal.setTelefono_Habitacion(rs.getString(""));
             OBeca_Municipal.setTelefono_Celular(rs.getString(""));
@@ -49,17 +51,19 @@ public class Beca_Municipal_Dao {
         ps = db.getConnection().prepareStatement(sql);
         ps.setInt(1, OBeca_Municipal.getId());
         ps.setString(1, OBeca_Municipal.getCedula());
-        ps.setString(2, OBeca_Municipal.getNombre_Completo());
-        ps.setObject(3, (Direccion) OBeca_Municipal.getDireccion());
-        ps.setString(4, OBeca_Municipal.getTelefono_Habitacion());
-        ps.setString(5, OBeca_Municipal.getTelefono_Celular());
-        ps.setString(6, OBeca_Municipal.getFecha_Nacimiento());
-        ps.setString(7, OBeca_Municipal.getGrado_Cursando());
-        ps.setInt(8, OBeca_Municipal.getEdad());
-        ps.setString(9, OBeca_Municipal.getNombre_Madre());
+        ps.setString(2, OBeca_Municipal.getNombre());
+        ps.setString(3, OBeca_Municipal.getPrimer_Apellido());
+        ps.setString(4, OBeca_Municipal.getSegundo_Apellido());
+        ps.setObject(5, (Direccion) OBeca_Municipal.getDireccion());
+        ps.setString(6, OBeca_Municipal.getTelefono_Habitacion());
+        ps.setString(7, OBeca_Municipal.getTelefono_Celular());
+        ps.setString(8, OBeca_Municipal.getFecha_Nacimiento());
+        ps.setString(9, OBeca_Municipal.getGrado_Cursando());
+        ps.setInt(10, OBeca_Municipal.getEdad());
+        ps.setString(11, OBeca_Municipal.getNombre_Madre());
         ps.setString(12, OBeca_Municipal.getCedula_Madre());
-        ps.setString(11, OBeca_Municipal.getNombre_Padre());
-        ps.setString(12, OBeca_Municipal.getCedula_Padre());
+        ps.setString(13, OBeca_Municipal.getNombre_Padre());
+        ps.setString(14, OBeca_Municipal.getCedula_Padre());
         if (ps.executeUpdate() > 0) {
             return true;
         }

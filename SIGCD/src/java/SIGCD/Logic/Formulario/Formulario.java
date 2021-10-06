@@ -6,7 +6,9 @@ public class Formulario {
 
     private int Id;
     private String SCedula;
-    private String SNombre_Completo;
+    private String SNombre;
+    private String SPrimer_Apellido;
+    private String SSegundo_Apellido;
     private Direccion ODireccion;
     private String STelefono_Habitacion;
     private String STelefono_Celular;
@@ -15,10 +17,12 @@ public class Formulario {
     public Formulario() {
     }
 
-    public Formulario(int Id, String SCedula, String SNombre_Completo, Direccion ODireccion, String STelefono_Habitacion, String STelefono_Celular) {
+    public Formulario(int Id, String SCedula, String SNombre, String SPrimer_Apellido, String SSegundo_Apellido, Direccion ODireccion, String STelefono_Habitacion, String STelefono_Celular) {
         this.Id = Id;
         this.SCedula = SCedula;
-        this.SNombre_Completo = SNombre_Completo;
+        this.SNombre = SNombre;
+        this.SPrimer_Apellido = SPrimer_Apellido;
+        this.SSegundo_Apellido = SSegundo_Apellido;
         this.ODireccion = ODireccion;
         this.STelefono_Habitacion = STelefono_Habitacion;
         this.STelefono_Celular = STelefono_Celular;
@@ -40,13 +44,29 @@ public class Formulario {
     public void setCedula(String SCedula) {
         this.SCedula = SCedula;
     }
-
-    public String getNombre_Completo() {
-        return SNombre_Completo;
+    
+     public String getNombre() {
+        return SNombre;
     }
 
-    public void setNombre_Completo(String SNombre_Completo) {
-        this.SNombre_Completo = SNombre_Completo;
+    public void setNombre(String SNombre) {
+        this.SNombre = SNombre;
+    }
+    
+    public String getPrimer_Apellido() {
+        return SPrimer_Apellido;
+    }
+
+    public void setPrimer_Apellido(String SPrimer_Apellido) {
+        this.SPrimer_Apellido = SPrimer_Apellido;
+    }
+
+    public String getSegundo_Apellido() {
+        return SSegundo_Apellido;
+    }
+
+    public void setSegundo_Apellido(String SSegundo_Apellido) {
+        this.SSegundo_Apellido = SSegundo_Apellido;
     }
 
     public Direccion getDireccion() {
@@ -73,11 +93,11 @@ public class Formulario {
         this.STelefono_Celular = STelefono_Celular;
     }
 
-    public String getSEstado() {
+    public String getEstado() {
         return SEstado;
     }
 
-    public void setSEstado(String SEstado) {
+    public void setEstado(String SEstado) {
         this.SEstado = SEstado;
     }
 }
