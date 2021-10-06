@@ -42,13 +42,14 @@ public class Ayuda_Temporal_Dao {
         PreparedStatement ps = null;
         Database db = Database.instance();
         ps = db.getConnection().prepareStatement(sql);
-        ps.setString(1, OAyuda_Temporal.getCedula());
-        ps.setString(2, OAyuda_Temporal.getNombre_Completo());
-        ps.setObject(3, (Direccion) OAyuda_Temporal.getDireccion());
-        ps.setString(4, OAyuda_Temporal.getTelefono_Habitacion());
-        ps.setString(5, OAyuda_Temporal.getTelefono_Celular());
-        ps.setString(6, OAyuda_Temporal.getTipo_Ayuda());
-        ps.setString(7, OAyuda_Temporal.getMotivo_Ayuda());
+        ps.setInt(1, OAyuda_Temporal.getId());
+        ps.setString(2, OAyuda_Temporal.getCedula());
+        ps.setString(3, OAyuda_Temporal.getNombre_Completo());
+        ps.setObject(4, (Direccion) OAyuda_Temporal.getDireccion());
+        ps.setString(5, OAyuda_Temporal.getTelefono_Habitacion());
+        ps.setString(6, OAyuda_Temporal.getTelefono_Celular());
+        ps.setString(7, OAyuda_Temporal.getTipo_Ayuda());
+        ps.setString(8, OAyuda_Temporal.getMotivo_Ayuda());
         if (ps.executeUpdate() > 0) {
             return true;
         }

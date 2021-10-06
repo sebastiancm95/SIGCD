@@ -15,8 +15,8 @@ public class Beca_Municipal extends Formulario {
     public Beca_Municipal() {
     }
 
-    public Beca_Municipal(String SCedula, String SNombre_Completo, Direccion ODireccion, String STelefono_Habitacion, String STelefono_Celular, String SFecha_Nacimiento, String SGrado_Cursando, int IEdad, String SNombre_Madre, String SCedula_Madre, String SNombre_Padre, String SCedula_Padre) {
-        super(SCedula, SNombre_Completo, ODireccion, STelefono_Habitacion, STelefono_Celular);
+    public Beca_Municipal(int Id, String SCedula, String SNombre_Completo, Direccion ODireccion, String STelefono_Habitacion, String STelefono_Celular, String SFecha_Nacimiento, String SGrado_Cursando, int IEdad, String SNombre_Madre, String SCedula_Madre, String SNombre_Padre, String SCedula_Padre) {
+        super(Id, SCedula, SNombre_Completo, ODireccion, STelefono_Habitacion, STelefono_Celular);
         this.SFecha_Nacimiento = SFecha_Nacimiento;
         this.SGrado_Cursando = SGrado_Cursando;
         this.IEdad = IEdad;
@@ -80,10 +80,5 @@ public class Beca_Municipal extends Formulario {
 
     public void setCedula_Padre(String SCedula_Padre) {
         this.SCedula_Padre = SCedula_Padre;
-    }
-
-    @Override
-    public String toString() {
-        return "Beca_Municipal{" + "SFecha_Nacimiento=" + SFecha_Nacimiento + ", SGrado_Cursando=" + SGrado_Cursando + ", Iedad=" + IEdad + ", SNombre_Madre=" + SNombre_Madre + ", SCedula_Madre=" + SCedula_Madre + ", SNombre_Padre=" + SNombre_Padre + ", SCedula_Padre=" + SCedula_Padre + '}';
     }
 }
