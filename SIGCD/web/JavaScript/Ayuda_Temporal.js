@@ -1,7 +1,5 @@
 var barriosSanPablo = ["Las Cruces", "Las Joyas", "María Auxiliadora", "La Puebla", "Las Quintanas", "Uriche", "La Amelia", "Las Pastoras"];
 var barriosRinconSabanilla = ["Rincón de Ricardo", "Miraflores", "Calle Cordero", "Rinconada"];
-
-
 var proyecciones = new Array();
 var peliculas = new Array();
 var salas = new Array();
