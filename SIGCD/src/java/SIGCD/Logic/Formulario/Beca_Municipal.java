@@ -1,6 +1,6 @@
 package SIGCD.Logic.Formulario;
 
-import SIGCD.Logic.Direccion.Direccion;
+import java.time.LocalDateTime;
 
 public class Beca_Municipal extends Formulario {
 
@@ -9,21 +9,29 @@ public class Beca_Municipal extends Formulario {
     private int IEdad;
     private String SNombre_Madre;
     private String SCedula_Madre;
+    private String SPrimer_Apellido_Madre;
+    private String SSegundo_Apellido_Madre;
     private String SNombre_Padre;
     private String SCedula_Padre;
+    private String SPrimer_Apellido_Padre;
+    private String SSegundo_Apellido_Padre;
 
     public Beca_Municipal() {
     }
 
-    public Beca_Municipal(int Id, String SCedula, String SNombre, String SPrimer_Nombre, String SSegundo_Apellido, Direccion ODireccion, String STelefono_Habitacion, String STelefono_Celular, String SFecha_Nacimiento, String SGrado_Cursando, int IEdad, String SNombre_Madre, String SCedula_Madre, String SNombre_Padre, String SCedula_Padre) {
-        super(Id, SCedula, SNombre, SPrimer_Nombre, SSegundo_Apellido, ODireccion, STelefono_Habitacion, STelefono_Celular);
+    public Beca_Municipal(int Id, String SCedula, String SNombre, String SPrimer_Nombre, String SPrimer_Apellido, String SSegundo_Apellido, String SDistrito, String SBarrio, String SSenas, String STelefono_Habitacion, String STelefono_Celular, String SFecha_Nacimiento, String SGrado_Cursando, int IEdad, String SCedula_Madre, String SNombre_Madre, String SPrimer_Apellido_Madre, String SSegundo_Apellido_Madre, String SCedula_Padre, String SNombre_Padre, String SPrimer_Apellido_Padre, String SSegundo_Apellido_Padre, LocalDateTime DFecha) {
+        super(Id, SCedula, SNombre, SPrimer_Apellido, SSegundo_Apellido, SDistrito, SBarrio, SSenas, STelefono_Habitacion, STelefono_Celular, DFecha);
         this.SFecha_Nacimiento = SFecha_Nacimiento;
         this.SGrado_Cursando = SGrado_Cursando;
         this.IEdad = IEdad;
         this.SNombre_Madre = SNombre_Madre;
         this.SCedula_Madre = SCedula_Madre;
+        this.SPrimer_Apellido_Madre = SPrimer_Apellido_Madre;
+        this.SSegundo_Apellido_Madre = SSegundo_Apellido_Madre;
         this.SNombre_Padre = SNombre_Padre;
         this.SCedula_Padre = SCedula_Padre;
+        this.SPrimer_Apellido_Madre = SPrimer_Apellido_Padre;
+        this.SSegundo_Apellido_Madre = SSegundo_Apellido_Padre;
     }
 
     public String getFecha_Nacimiento() {
@@ -80,5 +88,37 @@ public class Beca_Municipal extends Formulario {
 
     public void setCedula_Padre(String SCedula_Padre) {
         this.SCedula_Padre = SCedula_Padre;
+    }
+
+    public String getPrimer_Apellido_Madre() {
+        return SPrimer_Apellido_Madre;
+    }
+
+    public void setPrimer_Apellido_Madre(String SPrimer_Apellido_Madre) {
+        this.SPrimer_Apellido_Madre = SPrimer_Apellido_Madre;
+    }
+
+    public String getSegundo_Apellido_Madre() {
+        return SSegundo_Apellido_Madre;
+    }
+
+    public void setSegundo_Apellido_Madre(String SSegundo_Apellido_Madre) {
+        this.SSegundo_Apellido_Madre = SSegundo_Apellido_Madre;
+    }
+
+    public String getPrimer_Apellido_Padre() {
+        return SPrimer_Apellido_Padre;
+    }
+
+    public void setPrimer_Apellido_Padre(String SPrimer_Apellido_Padre) {
+        this.SPrimer_Apellido_Padre = SPrimer_Apellido_Padre;
+    }
+
+    public String getSegundo_Apellido_Padre() {
+        return SSegundo_Apellido_Padre;
+    }
+
+    public void setSegundo_Apellido_Padre(String SSegundo_Apellido_Padre) {
+        this.SSegundo_Apellido_Padre = SSegundo_Apellido_Padre;
     }
 }

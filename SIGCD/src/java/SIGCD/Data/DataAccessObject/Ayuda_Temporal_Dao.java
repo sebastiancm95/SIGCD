@@ -1,16 +1,16 @@
 package SIGCD.Data.DataAccessObject;
 
-import SIGCD.Logic.Direccion.Direccion;
 import SIGCD.Logic.Formulario.Ayuda_Temporal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Ayuda_Temporal_Dao {
 
     public Ayuda_Temporal read(int id) throws Exception {
-        String sql = "select * from formularioA where id_Formulario=?";
+        String sql = "select * from t_ayuda_temporal where id_ayuda_temporal=?";
         PreparedStatement stm = Database.instance().prepareStatement(sql);
         stm.setInt(1, id);
         ResultSet rs = Database.instance().executeQuery(stm);
@@ -28,11 +28,14 @@ public class Ayuda_Temporal_Dao {
             OAyuda_Temporal.setNombre(rs.getString(""));
             OAyuda_Temporal.setPrimer_Apellido(rs.getString(""));
             OAyuda_Temporal.setSegundo_Apellido(rs.getString(""));
-            OAyuda_Temporal.setDireccion((Direccion) rs.getObject(""));
+            OAyuda_Temporal.setDistrito(rs.getString(""));
+            OAyuda_Temporal.setBarrio(rs.getString(""));
+            OAyuda_Temporal.setDireccion(rs.getString(""));
             OAyuda_Temporal.setTelefono_Habitacion(rs.getString(""));
             OAyuda_Temporal.setTelefono_Celular(rs.getString(""));
-            OAyuda_Temporal.setTipo_Ayuda(rs.getString(""));
             OAyuda_Temporal.setMotivo_Ayuda(rs.getString(""));
+            OAyuda_Temporal.setEstado(rs.getString(""));
+            OAyuda_Temporal.setFecha((LocalDateTime) rs.getObject(""));
             return OAyuda_Temporal;
         } catch (SQLException ex) {
             return null;
@@ -49,11 +52,13 @@ public class Ayuda_Temporal_Dao {
         ps.setString(3, OAyuda_Temporal.getNombre());
         ps.setString(4, OAyuda_Temporal.getPrimer_Apellido());
         ps.setString(5, OAyuda_Temporal.getSegundo_Apellido());
-        ps.setObject(6, (Direccion) OAyuda_Temporal.getDireccion());
-        ps.setString(7, OAyuda_Temporal.getTelefono_Habitacion());
-        ps.setString(8, OAyuda_Temporal.getTelefono_Celular());
-        ps.setString(9, OAyuda_Temporal.getTipo_Ayuda());
-        ps.setString(10, OAyuda_Temporal.getMotivo_Ayuda());
+        ps.setString(6, OAyuda_Temporal.getDistrito());
+        ps.setString(7, OAyuda_Temporal.getBarrio());
+        ps.setString(8, OAyuda_Temporal.getDireccion());
+        ps.setString(9, OAyuda_Temporal.getTelefono_Habitacion());
+        ps.setString(10, OAyuda_Temporal.getTelefono_Celular());
+        ps.setString(11, OAyuda_Temporal.getMotivo_Ayuda());
+        ps.setObject(12, (LocalDateTime) OAyuda_Temporal.getFecha());
         if (ps.executeUpdate() > 0) {
             return true;
         }
