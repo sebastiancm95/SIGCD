@@ -15,8 +15,8 @@ public class Beca_Municipal extends Formulario {
     public Beca_Municipal() {
     }
 
-    public Beca_Municipal(int Id, String SCedula, String SNombre_Completo, Direccion ODireccion, String STelefono_Habitacion, String STelefono_Celular, String SFecha_Nacimiento, String SGrado_Cursando, int IEdad, String SNombre_Madre, String SCedula_Madre, String SNombre_Padre, String SCedula_Padre) {
-        super(Id, SCedula, SNombre_Completo, ODireccion, STelefono_Habitacion, STelefono_Celular);
+    public Beca_Municipal(int Id, String SCedula, String SNombre, String SPrimer_Nombre, String SSegundo_Apellido, Direccion ODireccion, String STelefono_Habitacion, String STelefono_Celular, String SFecha_Nacimiento, String SGrado_Cursando, int IEdad, String SNombre_Madre, String SCedula_Madre, String SNombre_Padre, String SCedula_Padre) {
+        super(Id, SCedula, SNombre, SPrimer_Nombre, SSegundo_Apellido, ODireccion, STelefono_Habitacion, STelefono_Celular);
         this.SFecha_Nacimiento = SFecha_Nacimiento;
         this.SGrado_Cursando = SGrado_Cursando;
         this.IEdad = IEdad;

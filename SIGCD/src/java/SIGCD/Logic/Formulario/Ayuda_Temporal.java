@@ -10,8 +10,8 @@ public class Ayuda_Temporal extends Formulario {
     public Ayuda_Temporal() {
     }
 
-    public Ayuda_Temporal(int Id, String SCedula, String SNombre_Completo, Direccion ODireccion, String STelefono_Habitacion, String STelefono_Celular, String STipo_Ayuda, String SMotivo_Ayuda) {
-        super(Id, SCedula, SNombre_Completo, ODireccion, STelefono_Habitacion, STelefono_Celular);
+    public Ayuda_Temporal(int Id, String SCedula, String SNombre, String SPrimer_Nombre, String SSegundo_Apellido, Direccion ODireccion, String STelefono_Habitacion, String STelefono_Celular, String STipo_Ayuda, String SMotivo_Ayuda) {
+        super(Id, SCedula, SNombre, SPrimer_Nombre, SSegundo_Apellido, ODireccion, STelefono_Habitacion, STelefono_Celular);
         this.STipo_Ayuda = STipo_Ayuda;
         this.SMotivo_Ayuda = SMotivo_Ayuda;
     }
