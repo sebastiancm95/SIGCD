@@ -1,12 +1,7 @@
 var barriosSanPablo = ["Las Cruces", "Las Joyas", "María Auxiliadora", "La Puebla", "Las Quintanas", "Uriche", "La Amelia", "Las Pastoras"];
 var barriosRinconSabanilla = ["Rincón de Ricardo", "Miraflores", "Calle Cordero", "Rinconada"];
-var proyecciones = new Array();
-var peliculas = new Array();
-var salas = new Array();
-var options = new Array();
-var proyeccion = {pelicula: "", sala: "", fecha: "", hora: "", asiento: "", precio: ""};
+var ayudaTemporal = {pelicula: "", sala: "", fecha: "", hora: "", asiento: "", precio: ""};
 var mode = 'A'; //adding
-
 
 function render() {
     $("#peliculaId").val(proyeccion.pelicula);
@@ -16,35 +11,23 @@ function render() {
     $("#precio").val(proyeccion.precio);
     switch (mode) {
         case 'A':
-            $('#crearProyeccion').off('click').on('click', add);
+            $('#enviarSolicitudButton').off('click').on('click', add);
             break;
     }
-    $("#add-modal #errorDiv").html("");
-    $('#add-modal').modal('show');
 }
 
-//function myFunction() {
-//var combo = document.getElementById("peliculas");
-//
-//var selected = combo.options[combo.selectedIndex].text;
-//alert(selected);
-//  document.getElementById($("result")).innerHTML = selected;
-//  console.log(selected);
-//}
-
 function load() {
-    proyeccion = Object.fromEntries((new FormData($("#formulario").get(0))).entries());
+    ayudaTemporal = Object.fromEntries((new FormData($("#formularioAyudaTemporal").get(0))).entries());
 }
 
 function reset() {
-    proyeccion = {pelicula: "", sala: "", fecha: "", hora: "", asiento: "", precio: ""};
+    ayudaTemporal = {pelicula: "", sala: "", fecha: "", hora: "", asiento: "", precio: ""};
 }
 
 function add() {
     load();
-
     //if(!validar()) return;
-    let request = new Request(url + 'api/proyecciones', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(proyeccion)});
+    let request = new Request(url + '/ayuda-temporal', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(ayudaTemporal)});
     (async () => {
         const response = await fetch(request);
 
@@ -55,27 +38,7 @@ function add() {
         }
         fetchAndList();
         reset();
-        $('#add-modal').modal('hide');
     })();
-}
-
-function list() {
-    $("#listado").html("");
-    proyecciones.forEach((p) => {
-        row($("#listado"), p);
-    });
-}
-
-function row(listado, proyeccion) {
-    var tr = $("<tr />");
-    tr.html("<td>" + proyeccion.id_proyeccion + "</td>" +
-            "<td>" + proyeccion.pelicula + "</td>" +
-            "<td>" + proyeccion.sala + "</td>" +
-            "<td>" + proyeccion.fecha + "</td>" +
-            "<td>" + proyeccion.hora + "</td>" +
-            "<td>" + proyeccion.asiento + "</td>" +
-            "<td>" + proyeccion.precio + "</td>");
-    listado.append(tr);
 }
 
 function makenew() {
@@ -85,69 +48,26 @@ function makenew() {
 }
 
 function fetchAndList() {
-    let request = new Request(url + 'api/proyecciones', {method: 'GET', headers: {}});
+    let request = new Request(url + 'api/ayuda-temporal', {method: 'GET', headers: {}});
     (async () => {
         const response = await fetch(request);
         if (!response.ok) {
-            errorMessage(response.status, $("#buscarDiv #errorDiv"));
+            //errorMessage(response.status, $("#buscarDiv #errorDiv"));
             return;
         }
-        proyecciones = await response.json();
-        list();
+        ayudaTemporal = await response.json();
     })();
-}
-
-function recuperarPeliculas() {
-    let request = new Request(url + 'api/peliculas', {method: 'GET', headers: {}});
-    (async () => {
-        const response = await fetch(request);
-        if (!response.ok) {
-            return;
-        }
-        peliculas = await response.json();
-        var select = document.getElementById("peliculas");
-        var iterador = peliculas.values();
-        var i = 0;
-        for (let pelicula of iterador) {
-            select.options[i] = new Option(pelicula.id_pelicula + " " + pelicula.nombre);
-            i++;
-        }
-    })();
-}
-
-function recuperarSalas() {
-    let request = new Request(url + 'api/salas', {method: 'GET', headers: {}});
-    (async () => {
-        const response = await fetch(request);
-        if (!response.ok) {
-            return;
-        }
-        salas = await response.json();
-        var select = document.getElementById("salas");
-        var iterador = salas.values();
-        var i = 0;
-        for (let sala of iterador) {
-            select.options[i] = new Option(sala.id_sala);
-            i++;
-        }
-    })();
-}
-
-function loadFilmAndSala() {
-    recuperarPeliculas();
-    recuperarSalas();
 }
 
 function loaded() {
     reset();
     fetchAndList();
-    $("#crear").click(makenew);
+    $("#enviarSolicitudButton").click(makenew);
 }
 
 $(loaded);
 
 function cargar_Barrios() {
-
     var distrito;
     var e = document.getElementById("distrito_Select");
     distrito = e.options[e.selectedIndex].text;

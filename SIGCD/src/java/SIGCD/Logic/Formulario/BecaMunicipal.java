@@ -11,8 +11,8 @@ public class BecaMunicipal extends Formulario {
     public BecaMunicipal() {
     }
 
-    public BecaMunicipal(Estudiante estudiante, int Id, int estado, Persona persona, Timestamp fecha) {
-        super(Id, estado, persona, fecha);
+    public BecaMunicipal(Estudiante estudiante, int IdFormulario, int estado, Persona persona, Timestamp fecha) {
+        super(IdFormulario, estado, persona, fecha);
         this.estudiante = estudiante;
     }
 
