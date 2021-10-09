@@ -12,8 +12,8 @@ and open the template in the editor.
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>       
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
-        <script src="JavaScript/Ventana_Principal.js"></script>
-        <script src="JavaScript/Beca_Municipal.js"></script>
+        <script src="JavaScript/VentanaPrincipal.js"></script>
+        <script src="JavaScript/BecaMunicipal.js"></script>
     </head>
 
     <body>
@@ -22,22 +22,22 @@ and open the template in the editor.
 
                 <div class="form-group">
                     <label>Nombre completo del solicitante</label>
-                    <input type="text" class="form-control" id="nombre_Completo_Input" placeholder="Ingrese su nombre completo">
+                    <input type="text" class="form-control" id="nombreCompletoInput" placeholder="Ingrese su nombre completo">
                 </div>
 
                 <div class="form-group">
                     <label>Número de cédula</label>
-                    <input type="text" class="form-control" id="cedula_Input" placeholder="Ingrese su cédula">
+                    <input type="text" class="form-control" id="cedulaInput" placeholder="Ingrese su cédula">
                 </div>
 
                 <div class="form-group">
                     <label>Fecha de nacimiento</label>
-                    <input type="text" class="form-control" id="fecha_Nacimiento_Input" placeholder="Ingrese su fecha de nacimiento">
+                    <input type="text" class="form-control" id="fechaNacimientoInput" placeholder="Ingrese su fecha de nacimiento">
                 </div>
 
                 <div class="form-group">
                     <label>Centro educativo al que asiste</label>
-                    <input type="text" class="form-control" id="centro_Educativo_Input" placeholder="Ingrese el nombre del centro educativo al que asiste">
+                    <input type="text" class="form-control" id="centroEducativoInput" placeholder="Ingrese el nombre del centro educativo al que asiste">
                 </div>
 
                 <div class="form-group">
@@ -45,7 +45,7 @@ and open the template in the editor.
 
                     <div class="form-group">
                         <label>Seleccione el distrito</label>
-                        <select class="form-control" id="distrito_Select" onchange = "cargar_Barrios()">
+                        <select class="form-control" id="distritoSelect" onchange = "cargarBarrios()">
                             <option> - </option>
                             <option>San Pablo</option>
                             <option>Rincón de Sabanilla</option>
@@ -54,34 +54,34 @@ and open the template in the editor.
 
                     <div class="form-group">
                         <label>Seleccione el barrio</label>
-                        <select class="form-control" id="barrio_Select" >
+                        <select class="form-control" id="barrioSelect" >
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label>Ingrese la dirección por señas de su residencia </label>
-                        <input type="text" class="form-control" id="direccion_Senas_Input" placeholder="Ingrese la dirección por señas de su residencia">
+                        <input type="text" class="form-control" id="direccionInput" placeholder="Ingrese la dirección por señas de su residencia">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label>Nombre de la madre del solicitante</label>
-                    <input type="text" class="form-control" id="nombre_Madre_Input" placeholder="Ingrese el nombre de su madre">
+                    <input type="text" class="form-control" id="nombreMadreInput" placeholder="Ingrese el nombre de su madre">
                 </div>
 
                 <div class="form-group">
                     <label>Número de cédula de la madre del solicitante</label>
-                    <input type="text" class="form-control" id="cedula_Madre" placeholder="Ingrese la cédula de su madre">
+                    <input type="text" class="form-control" id="cedulaMadre" placeholder="Ingrese la cédula de su madre">
                 </div>
 
                 <div class="form-group">
                     <label>Nombre del padre del solicitante</label>
-                    <input type="text" class="form-control" id="nombre_Padre_Input" placeholder="Ingrese el nombre de su padre">
+                    <input type="text" class="form-control" id="nombrePadreInput" placeholder="Ingrese el nombre de su padre">
                 </div>
 
                 <div class="form-group">
                     <label>Número de cédula del padre del solicitante</label>
-                    <input type="text" class="form-control" id="cedula_Padre" placeholder="Ingrese la cédula de su padre">
+                    <input type="text" class="form-control" id="cedulaPadre" placeholder="Ingrese la cédula de su padre">
                 </div>
 
                 <button type="submit" class="btn btn-primary">Enviar mi solicitud</button>
