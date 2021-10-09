@@ -1,67 +1,78 @@
 package SIGCD.Data.DataAccessObject;
 
+import SIGCD.Logic.Direccion.Direccion;
 import SIGCD.Logic.Formulario.AyudaTemporal;
+import SIGCD.Logic.Persona.Solicitante;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 
 public class AyudaTemporalDao {
 
-//    public AyudaTemporal read(int id) throws Exception {
-//        String sql = "select * from t_ayuda_temporal where id_ayuda_temporal=?";
-//        PreparedStatement stm = Database.instance().prepareStatement(sql);
-//        stm.setInt(1, id);
-//        ResultSet resultSet = Database.instance().executeQuery(stm);
-//        if (resultSet.next()) {
-//            return from(resultSet);
-//        } else {
-//            return null;
-//        }
-//    }
-//    public AyudaTemporal from(ResultSet resultSet) {
-//        try {
-//            AyudaTemporal ayudaTemporal = new AyudaTemporal();
-//            OAyudaTemporal.setCedula(resultSet.getString(""));
-//            OAyudaTemporal.setNombre(resultSet.getString(""));
-//            OAyudaTemporal.setPrimer_Apellido(resultSet.getString(""));
-//            OAyudaTemporal.setSegundo_Apellido(resultSet.getString(""));
-//            OAyudaTemporal.setDistrito(resultSet.getString(""));
-//            OAyudaTemporal.setBarrio(resultSet.getString(""));
-//            OAyudaTemporal.setDireccion(resultSet.getString(""));
-//            OAyudaTemporal.setTelefono_Habitacion(resultSet.getString(""));
-//            OAyudaTemporal.setTelefono_Celular(resultSet.getString(""));
-//            OAyudaTemporal.setMotivo_Ayuda(resultSet.getString(""));
-//            OAyudaTemporal.setEstado(resultSet.getString(""));
-//            OAyudaTemporal.setFecha((LocalDateTime) resultSet.getObject(""));
-//            return ayudaTemporal;
-//        } catch (SQLException ex) {
-//            return null;
-//        }
-//    }
-//    public boolean create(AyudaTemporal OAyudaTemporal) throws SQLException {
+    public AyudaTemporal read(int id) throws Exception {
+        String sql = "select * from AyudaTemporal where idAyudaTemporal=?";
+        PreparedStatement stm = Database.instance().prepareStatement(sql);
+        stm.setInt(1, id);
+        ResultSet resultSet = Database.instance().executeQuery(stm);
+        if (resultSet.next()) {
+            return from(resultSet);
+        } else {
+            return null;
+        }
+    }
+
+    public AyudaTemporal from(ResultSet resultSet) {
+        try {
+            AyudaTemporal ayudaTemporal = new AyudaTemporal();
+            Solicitante solicitante = new Solicitante();
+            Direccion direccion = new Direccion();
+            
+            ayudaTemporal.setIdFormulario(resultSet.getInt(""));
+            ayudaTemporal.setEstado(resultSet.getInt(""));
+            solicitante.setCedula(resultSet.getString(""));
+            solicitante.setNombre(resultSet.getString(""));
+            solicitante.setPrimerApellido(resultSet.getString(""));
+            solicitante.setSegundoApellido(resultSet.getString(""));
+            solicitante.setTelefonoHabitacion(resultSet.getString(""));
+            solicitante.setTelefonoCelular(resultSet.getString(""));
+            direccion.setDistrito(resultSet.getString(""));
+            direccion.setBarrio(resultSet.getString(""));
+            direccion.setDireccionExacta(resultSet.getString(""));
+            ayudaTemporal.setSolicitante(solicitante);
+            ayudaTemporal.setMotivoAyuda(resultSet.getString(""));
+            ayudaTemporal.setFechaCreacion(resultSet.getTimestamp(""));
+            return ayudaTemporal;
+        } catch (SQLException ex) {
+            return null;
+        }
+    }
+
+//    public boolean create(AyudaTemporal ayudaTemporal) throws SQLException {
 //        String sql = "insert into pelicula (id_pelicula,nombre) values(?,?)";
 //        PreparedStatement ps = null;
 //        Database db = Database.instance();
 //        ps = db.getConnection().prepareStatement(sql);
-//        ps.setInt(1, OAyudaTemporal.getId());
-//        ps.setString(2, OAyudaTemporal.getCedula());
-//        ps.setString(3, OAyudaTemporal.getNombre());
-//        ps.setString(4, OAyudaTemporal.getPrimer_Apellido());
-//        ps.setString(5, OAyudaTemporal.getSegundo_Apellido());
-//        ps.setString(6, OAyudaTemporal.getDistrito());
-//        ps.setString(7, OAyudaTemporal.getBarrio());
-//        ps.setString(8, OAyudaTemporal.getDireccion());
-//        ps.setString(9, OAyudaTemporal.getTelefono_Habitacion());
-//        ps.setString(10, OAyudaTemporal.getTelefono_Celular());
-//        ps.setString(11, OAyudaTemporal.getMotivo_Ayuda());
-//        ps.setObject(12, (LocalDateTime) OAyudaTemporal.getFecha());
+//        ps.setInt(1, ayudaTemporal.getIdFormulario());
+//        
+//        
+//        ps.setInt(1, ayudaTemporal.getId());
+//        ps.setString(2, ayudaTemporal.getCedula());
+//        ps.setString(3, ayudaTemporal.getNombre());
+//        ps.setString(4, ayudaTemporal.getPrimer_Apellido());
+//        ps.setString(5, ayudaTemporal.getSegundo_Apellido());
+//        ps.setString(6, ayudaTemporal.getDistrito());
+//        ps.setString(7, ayudaTemporal.getBarrio());
+//        ps.setString(8, ayudaTemporal.getDireccion());
+//        ps.setString(9, ayudaTemporal.getTelefono_Habitacion());
+//        ps.setString(10, ayudaTemporal.getTelefono_Celular());
+//        ps.setString(11, ayudaTemporal.getMotivo_Ayuda());
+//        ps.setObject(12, (LocalDateTime) ayudaTemporal.getFecha());
 //        if (ps.executeUpdate() > 0) {
 //            return true;
 //        }
 //        return false;
 //    }
+    
 //    public Pelicula findById(int id_pelicula) {
 //        String sql = "select id_pelicula from pelicula where id_pelicula=?;";
 //        PreparedStatement ps = null;

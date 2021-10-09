@@ -8,16 +8,16 @@ public class Formulario {
     private int IdFormulario;
     private int estado;
     private Persona persona;
-    private Timestamp fecha;
+    private Timestamp fechaCreacion;
 
     public Formulario() {
     }
 
-    public Formulario(int IdFormulario, int estado, Persona persona, Timestamp fecha) {
+    public Formulario(int IdFormulario, int estado, Persona persona, Timestamp fechaCreacionCreacion) {
         this.IdFormulario = IdFormulario;
         this.estado = estado;
         this.persona = persona;
-        this.fecha = fecha;
+        this.fechaCreacion = fechaCreacion;
     }
 
     public int getIdFormulario() {
@@ -44,16 +44,16 @@ public class Formulario {
         this.persona = persona;
     }
 
-    public Timestamp getFecha() {
-        return fecha;
+    public Timestamp getFechaCreacion() {
+        return fechaCreacion;
     }
 
-    public void setFecha(Timestamp fecha) {
-        this.fecha = fecha;
+    public void setFechaCreacion(Timestamp fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
     }
 
     @Override
     public String toString() {
-        return "Formulario{" + "Id=" + IdFormulario + ", estado=" + estado + ", persona=" + persona + ", fecha=" + fecha + '}';
+        return "Formulario{" + "Id=" + IdFormulario + ", estado=" + estado + ", persona=" + persona + ", fechaCreacion=" + fechaCreacion + '}';
     }
 }
