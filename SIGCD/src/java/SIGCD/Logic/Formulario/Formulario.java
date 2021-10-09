@@ -1,22 +1,19 @@
 package SIGCD.Logic.Formulario;
 
-import SIGCD.Logic.Persona.Persona;
 import java.sql.Timestamp;
 
 public class Formulario {
 
     private int IdFormulario;
     private int estado;
-    private Persona persona;
     private Timestamp fechaCreacion;
 
     public Formulario() {
     }
 
-    public Formulario(int IdFormulario, int estado, Persona persona, Timestamp fechaCreacionCreacion) {
+    public Formulario(int IdFormulario, int estado, Timestamp fechaCreacion) {
         this.IdFormulario = IdFormulario;
         this.estado = estado;
-        this.persona = persona;
         this.fechaCreacion = fechaCreacion;
     }
 
@@ -35,15 +32,7 @@ public class Formulario {
     public void setEstado(int estado) {
         this.estado = estado;
     }
-
-    public Persona getPersona() {
-        return persona;
-    }
-
-    public void setPersona(Persona persona) {
-        this.persona = persona;
-    }
-
+    
     public Timestamp getFechaCreacion() {
         return fechaCreacion;
     }
@@ -54,6 +43,6 @@ public class Formulario {
 
     @Override
     public String toString() {
-        return "Formulario{" + "Id=" + IdFormulario + ", estado=" + estado + ", persona=" + persona + ", fechaCreacion=" + fechaCreacion + '}';
+        return "Formulario{" + "Id=" + IdFormulario + ", estado=" + estado + ", fechaCreacion=" + fechaCreacion + '}';
     }
 }

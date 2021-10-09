@@ -24,7 +24,7 @@ public class AyudasTemporales {
 //    @Consumes(MediaType.APPLICATION_JSON)
 //    public void add(AyudaTemporal ayudaTemporal) {
 //        try {
-//            Model.instance().ayudaTemporalCreate(ayudaTemporal);
+//            Model.instance().createAyudaTemporal(ayudaTemporal);
 //        } catch (Exception ex) {
 //            throw new NotAcceptableException();
 //        }

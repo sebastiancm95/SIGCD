@@ -13,8 +13,8 @@ public class Estudiante extends Solicitante {
     public Estudiante() {
     }
 
-    public Estudiante(int gradoAcademico, int edad, String fechaNacimiento, Persona madre, Persona padre, String telefonotHabitacion, String telefonoCelular, Direccion direccion, int idPersona, String cedula, String nombre, String primerApellido, String segundoApellido) {
-        super(telefonotHabitacion, telefonoCelular, direccion, idPersona, cedula, nombre, primerApellido, segundoApellido);
+    public Estudiante(int idPersona, String cedula, String nombre, String primerApellido, String segundoApellido, String telefonoHabitacion, String telefonoCelular, Direccion direccion, int gradoAcademico, int edad, String fechaNacimiento, Persona madre, Persona padre) {
+        super(idPersona, cedula, nombre, primerApellido, segundoApellido, telefonoHabitacion, telefonoCelular, direccion);
         this.gradoAcademico = gradoAcademico;
         this.edad = edad;
         this.fechaNacimiento = fechaNacimiento;

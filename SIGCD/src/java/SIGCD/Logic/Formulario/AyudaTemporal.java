@@ -1,6 +1,5 @@
 package SIGCD.Logic.Formulario;
 
-import SIGCD.Logic.Persona.Persona;
 import SIGCD.Logic.Persona.Solicitante;
 import java.sql.Timestamp;
 
@@ -12,8 +11,8 @@ public class AyudaTemporal extends Formulario {
     public AyudaTemporal() {
     }
 
-    public AyudaTemporal(Solicitante solicitante, String motivoAyuda, int IdFormulario, int estado, Persona persona, Timestamp fechaCreacion) {
-        super(IdFormulario, estado, persona, fechaCreacion);
+    public AyudaTemporal(int IdFormulario, int estado, Timestamp fechaCreacion, Solicitante solicitante, String motivoAyuda) {
+        super(IdFormulario, estado, fechaCreacion);
         this.solicitante = solicitante;
         this.motivoAyuda = motivoAyuda;
     }
