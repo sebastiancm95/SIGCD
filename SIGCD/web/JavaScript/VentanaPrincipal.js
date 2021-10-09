@@ -1,5 +1,5 @@
 var VentanaPrincipal = 
-`
+`     
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -7,7 +7,7 @@ var VentanaPrincipal =
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">Inicio<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="Index.html">Inicio<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tipo de ayudas</a>
@@ -18,17 +18,17 @@ var VentanaPrincipal =
                 </div>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="EstadoSolicitud.html">Ver estado de mi solicitud<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="EstadoSolicitud.html">Ver estado de mi solicitud<span class="sr-only"></span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="app.html">Calendario<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="app.html">Calendario<span class="sr-only"></span></a>
             </li>
     </div>
 </nav>
 `;
 
-function loadMenu() {
+function cargarVentanaPrincipal() {
     $('body').prepend(VentanaPrincipal);
 }
 
-$(loadMenu);
+$(cargarVentanaPrincipal);

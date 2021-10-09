@@ -2,7 +2,6 @@ var barriosSanPablo = ["Las Cruces", "Las Joyas", "María Auxiliadora", "La Pueb
 var barriosRinconSabanilla = ["Rincón de Ricardo", "Miraflores", "Calle Cordero", "Rinconada"];
 
 function cargarBarrios() {
-
     var distrito;
     var e = document.getElementById("distritoSelect");
     distrito = e.options[e.selectedIndex].text;

@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 
 public class Formulario {
 
-    private int Id;
+    private int IdFormulario;
     private int estado;
     private Persona persona;
     private Timestamp fecha;
@@ -13,19 +13,19 @@ public class Formulario {
     public Formulario() {
     }
 
-    public Formulario(int Id, int estado, Persona persona, Timestamp fecha) {
-        this.Id = Id;
+    public Formulario(int IdFormulario, int estado, Persona persona, Timestamp fecha) {
+        this.IdFormulario = IdFormulario;
         this.estado = estado;
         this.persona = persona;
         this.fecha = fecha;
     }
 
-    public int getId() {
-        return Id;
+    public int getIdFormulario() {
+        return IdFormulario;
     }
 
-    public void setId(int Id) {
-        this.Id = Id;
+    public void setIdFormulario(int IdFormulario) {
+        this.IdFormulario = IdFormulario;
     }
 
     public int getEstado() {
@@ -54,6 +54,6 @@ public class Formulario {
 
     @Override
     public String toString() {
-        return "Formulario{" + "Id=" + Id + ", estado=" + estado + ", persona=" + persona + ", fecha=" + fecha + '}';
+        return "Formulario{" + "Id=" + IdFormulario + ", estado=" + estado + ", persona=" + persona + ", fecha=" + fecha + '}';
     }
 }
