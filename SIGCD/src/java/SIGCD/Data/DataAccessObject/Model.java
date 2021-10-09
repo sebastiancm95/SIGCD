@@ -2,6 +2,7 @@ package SIGCD.Data.DataAccessObject;
 
 import SIGCD.Logic.Formulario.AyudaTemporal;
 import SIGCD.Logic.Formulario.BecaMunicipal;
+import SIGCD.Logic.Persona.Solicitante;
 import java.util.ArrayList;
 
 public class Model {
@@ -9,6 +10,12 @@ public class Model {
     private static Model uniqueInstance;
     private AyudaTemporalDao ayudaTemporalDao;
     private BecaMunicipalDao becaMunicipalDao;
+    
+    
+    public Model() {
+        this.ayudaTemporalDao = new AyudaTemporalDao();
+        this.becaMunicipalDao = new BecaMunicipalDao();
+    }
 
     public static Model instance() {
         if (uniqueInstance == null) {
@@ -17,23 +24,18 @@ public class Model {
         return uniqueInstance;
     }
 
-    public Model() {
-        this.ayudaTemporalDao = new AyudaTemporalDao();
-        this.becaMunicipalDao = new BecaMunicipalDao();
+    //Metodos Ayuda temporal
+    public void createAyudaTemporal(AyudaTemporal ayudaTemporal) throws Exception {
+        ayudaTemporalDao.create(ayudaTemporal);
     }
 
-    //Metodos Ayuda temporal
-//    public void ayudaTemporalCreate(AyudaTemporal result) throws Exception {
-//        ayudaTemporalDao.create(result);
-//    }
-//
-//    public ArrayList<AyudaTemporal> getAllAyudaTemporal() throws Exception {
-//        return ayudaTemporalDao.readAll();
-//    }
-//
-//    public AyudaTemporal getAyudaTemporal(int Id) throws Exception {
-//        return ayudaTemporalDao.read(Id);
-//    }
+    public ArrayList<AyudaTemporal> getAllAyudaTemporal() throws Exception {
+        return ayudaTemporalDao.readAll();
+    }
+
+    public AyudaTemporal getAyudaTemporal(int IdAyudaTemporal) throws Exception {
+        return ayudaTemporalDao.read(IdAyudaTemporal);
+    }
 //
 //    //Metodos Beca municipal
 //    public void becaMunicipalCreate(BecaMunicipal result) throws Exception {

@@ -1,7 +1,6 @@
 package SIGCD.Logic.Formulario;
 
 import SIGCD.Logic.Persona.Estudiante;
-import SIGCD.Logic.Persona.Persona;
 import java.sql.Timestamp;
 
 public class BecaMunicipal extends Formulario {
@@ -11,8 +10,8 @@ public class BecaMunicipal extends Formulario {
     public BecaMunicipal() {
     }
 
-    public BecaMunicipal(Estudiante estudiante, int IdFormulario, int estado, Persona persona, Timestamp fechaCreacion) {
-        super(IdFormulario, estado, persona, fechaCreacion);
+    public BecaMunicipal(int IdFormulario, int estado, Timestamp fechaCreacion, Estudiante estudiante) {
+        super(IdFormulario, estado, fechaCreacion);
         this.estudiante = estudiante;
     }
 
