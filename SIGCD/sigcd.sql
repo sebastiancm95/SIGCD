@@ -21,6 +21,15 @@ CREATE TABLE IF NOT EXISTS `sigcd`.`GradoAcademico` (
 )  ENGINE=INNODB DEFAULT CHARACTER SET=UTF8MB4 COLLATE = UTF8MB4_0900_AI_CI;
 
 -- -----------------------------------------------------
+-- Table `sigcd`.`Estado`
+-- -----------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `sigcd`.`Estado` (
+    `idEstado` INT NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY (`idEstado`)
+)  ENGINE=INNODB DEFAULT CHARACTER SET=UTF8MB4 COLLATE = UTF8MB4_0900_AI_CI;
+
+-- -----------------------------------------------------
 -- Table `sigcd`.`Estudiante`
 -- -----------------------------------------------------
 
@@ -73,11 +82,15 @@ CREATE TABLE IF NOT EXISTS `sigcd`.`Solicitante` (
 
 CREATE TABLE IF NOT EXISTS `sigcd`.`AyudaTemporal` (
 	`idAyudaTemporal` INT NOT NULL AUTO_INCREMENT,
+    `estado` INT NOT NULL,
     `solicitante` INT NOT NULL,
     `motivoAyuda` VARCHAR(200) NOT NULL,
+    `fechaCreacion` TIMESTAMP NOT NULL,
     PRIMARY KEY (`idAyudaTemporal`),
     CONSTRAINT `fkSolicitante` FOREIGN KEY (`solicitante`)
-        REFERENCES `sigcd`.`solicitante` (`idSolicitante`)
+        REFERENCES `sigcd`.`solicitante` (`idSolicitante`),
+         CONSTRAINT `fkEstado` FOREIGN KEY (`estado`)
+        REFERENCES `sigcd`.`Estado` (`idEstado`)
 ) ENGINE=INNODB DEFAULT CHARACTER SET=UTF8MB4 COLLATE = UTF8MB4_0900_AI_CI;
 
 -- -----------------------------------------------------
@@ -85,12 +98,16 @@ CREATE TABLE IF NOT EXISTS `sigcd`.`AyudaTemporal` (
 -- -----------------------------------------------------
 
 CREATE TABLE IF NOT EXISTS `sigcd`.`BecaMunicipal` (
-	`idBecaMunicipal` INT NOT NULL AUTO_INCREMENT,
+    `idBecaMunicipal` INT NOT NULL AUTO_INCREMENT,
+    `estado` INT NOT NULL,
     `estudiante` INT NOT NULL,
+    `fechaCreacion` TIMESTAMP NOT NULL,
     PRIMARY KEY (`idBecaMunicipal`),
     CONSTRAINT `fkEstudiante` FOREIGN KEY (`estudiante`)
-        REFERENCES `sigcd`.`estudiante` (`idEstudiante`)
-) ENGINE=INNODB DEFAULT CHARACTER SET=UTF8MB4 COLLATE = UTF8MB4_0900_AI_CI;
+        REFERENCES `sigcd`.`estudiante` (`idEstudiante`),
+    CONSTRAINT `fkEstado` FOREIGN KEY (`estado`)
+        REFERENCES `sigcd`.`Estado` (`idEstado`)
+)  ENGINE=INNODB DEFAULT CHARACTER SET=UTF8MB4 COLLATE = UTF8MB4_0900_AI_CI;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

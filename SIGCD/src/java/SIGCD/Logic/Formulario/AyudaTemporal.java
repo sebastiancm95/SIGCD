@@ -12,8 +12,8 @@ public class AyudaTemporal extends Formulario {
     public AyudaTemporal() {
     }
 
-    public AyudaTemporal(Solicitante solicitante, String motivoAyuda, int IdFormulario, int estado, Persona persona, Timestamp fecha) {
-        super(IdFormulario, estado, persona, fecha);
+    public AyudaTemporal(Solicitante solicitante, String motivoAyuda, int IdFormulario, int estado, Persona persona, Timestamp fechaCreacion) {
+        super(IdFormulario, estado, persona, fechaCreacion);
         this.solicitante = solicitante;
         this.motivoAyuda = motivoAyuda;
     }

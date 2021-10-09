@@ -4,26 +4,26 @@ import SIGCD.Logic.Direccion.Direccion;
 
 public class Solicitante extends Persona {
 
-    private String telefonotHabitacion;
+    private String telefonoHabitacion;
     private String telefonoCelular;
     private Direccion direccion;
 
     public Solicitante() {
     }
 
-    public Solicitante(String telefonotHabitacion, String telefonoCelular, Direccion direccion, int idPersona, String cedula, String nombre, String primerApellido, String segundoApellido) {
+    public Solicitante(String telefonoHabitacion, String telefonoCelular, Direccion direccion, int idPersona, String cedula, String nombre, String primerApellido, String segundoApellido) {
         super(idPersona, cedula, nombre, primerApellido, segundoApellido);
-        this.telefonotHabitacion = telefonotHabitacion;
+        this.telefonoHabitacion = telefonoHabitacion;
         this.telefonoCelular = telefonoCelular;
         this.direccion = direccion;
     }
 
-    public String getTelefonotHabitacion() {
-        return telefonotHabitacion;
+    public String getTelefonoHabitacion() {
+        return telefonoHabitacion;
     }
 
-    public void setTelefonotHabitacion(String telefonotHabitacion) {
-        this.telefonotHabitacion = telefonotHabitacion;
+    public void setTelefonoHabitacion(String telefonoHabitacion) {
+        this.telefonoHabitacion = telefonoHabitacion;
     }
 
     public String getTelefonoCelular() {
@@ -44,6 +44,6 @@ public class Solicitante extends Persona {
 
     @Override
     public String toString() {
-        return "Solicitante{" + "telefonotHabitacion=" + telefonotHabitacion + ", telefonoCelular=" + telefonoCelular + ", direccion=" + direccion + '}';
+        return "Solicitante{" + "telefonoHabitacion=" + telefonoHabitacion + ", telefonoCelular=" + telefonoCelular + ", direccion=" + direccion + '}';
     }
 }
