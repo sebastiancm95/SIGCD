@@ -3,7 +3,7 @@ let calendar = document.querySelector('.calendar');
 const month_names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 isLeapYear = (year) => {
-    return (year % 4 === 0 && year % 100 !== 0 && year % 400 !== 0) || (year % 100 === 0 && year % 400 ===0);
+    return (year % 4 === 0 && year % 100 !== 0 && year % 400 !== 0) || (year % 100 === 0 && year % 400 === 0);
 };
 
 getFebDays = (year) => {
@@ -20,15 +20,17 @@ generateCalendar = (month, year) => {
     calendar_days.innerHTML = '';
 
     let currDate = new Date();
-    if (!month) month = currDate.getMonth();
-    if (!year) year = currDate.getFullYear();
+    if (!month)
+        month = currDate.getMonth();
+    if (!year)
+        year = currDate.getFullYear();
 
     let curr_month = `${month_names[month]}`;
     month_picker.innerHTML = curr_month;
     calendar_header_year.innerHTML = year;
 
     // get first day of month
-    
+
     let first_day = new Date(year, month, 1);
 
     for (let i = 0; i <= days_of_month[month] + first_day.getDay() - 1; i++) {

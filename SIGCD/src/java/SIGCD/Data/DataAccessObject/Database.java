@@ -22,25 +22,25 @@ public class Database {
         return theInstance;
     }
 
-    public static final String PROPERTIES_FILE_NAME = "/Database.properties";
-    Connection cnx;
+    public static final String PROPERTIES_FILE_NAME = "/Database.propertieserties";
+    Connection connection;
 
     public Database() {
-        cnx = this.getConnection();
+        connection = this.getConnection();
     }
 
     public Connection getConnection() {
         try {
-            Properties prop = new Properties();
+            Properties properties = new Properties();
             URL resourceUrl = getClass().getResource(PROPERTIES_FILE_NAME);
             File file = new File(resourceUrl.toURI());
-            prop.load(new BufferedInputStream(new FileInputStream(file)));
-            String driver = prop.getProperty("database_driver");
-            String server = prop.getProperty("database_server");
-            String port = prop.getProperty("database_port");
-            String user = prop.getProperty("database_user");
-            String password = prop.getProperty("database_password");
-            String database = prop.getProperty("database_name");
+            properties.load(new BufferedInputStream(new FileInputStream(file)));
+            String driver = properties.getProperty("database_driver");
+            String server = properties.getProperty("database_server");
+            String port = properties.getProperty("database_port");
+            String user = properties.getProperty("database_user");
+            String password = properties.getProperty("database_password");
+            String database = properties.getProperty("database_name");
             String URL_conexion = "jdbc:mysql://" + server + ":" + port + "/"
                     + database + "?user=" + user + "&password=" + password + "&serverTimezone=UTC&autoReconnect=true&useSSL=false";
             Class.forName(driver).newInstance();
@@ -53,7 +53,7 @@ public class Database {
     }
 
     public PreparedStatement prepareStatement(String statement) throws SQLException {
-        return cnx.prepareStatement(statement);
+        return connection.prepareStatement(statement);
     }
 
     public int executeUpdate(PreparedStatement statement) {
