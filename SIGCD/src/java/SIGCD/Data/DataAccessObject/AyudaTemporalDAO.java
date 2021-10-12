@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class AyudaTemporalDA {
+public class AyudaTemporalDAO {
 
     public AyudaTemporal read(int idAyudaTemporal) throws Exception {
         String sql = "select * from AyudaTemporal where idAyudaTemporal=?";
@@ -71,7 +71,7 @@ public class AyudaTemporalDA {
                 );
             }
         } catch (SQLException ex) {
-            Logger.getLogger(AyudaTemporalDA.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AyudaTemporalDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return temp;
     }
