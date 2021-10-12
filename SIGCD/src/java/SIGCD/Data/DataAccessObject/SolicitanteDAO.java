@@ -1,19 +1,24 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package SIGCD.Data.DataAccessObject;
 
-import SIGCD.Logic.Formulario.AyudaTemporal;
+import SIGCD.Logic.Persona.Solicitante;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-public class AyudaTemporalDAO {
-
-    public AyudaTemporal read(int idAyudaTemporal) throws Exception {
-        String sql = "select * from AyudaTemporal where idAyudaTemporal=?";
+/**
+ *
+ * @author sebas
+ */
+public class SolicitanteDAO {
+   
+    public Solicitante read(int idSolicitante) throws Exception {
+        String sql = "select * from Solicitante where idSolicitante=?";
         PreparedStatement preparedStatement = Database.instance().prepareStatement(sql);
-        preparedStatement.setInt(1, idAyudaTemporal);
+        preparedStatement.setInt(1, idSolicitante);
         ResultSet resultSet = Database.instance().executeQuery(preparedStatement);
         if (resultSet.next()) {
             return from(resultSet);
@@ -22,9 +27,10 @@ public class AyudaTemporalDAO {
         }
     }
 
-    public AyudaTemporal from(ResultSet resultSet) {
+    public Solicitante from(ResultSet resultSet) {
         try {
-            AyudaTemporal ayudaTemporal = new AyudaTemporal();
+            Solicitante solicitante = new Solicitante();
+            
             ayudaTemporal.setIdFormulario(resultSet.getInt("idAyudaTemporal"));
             ayudaTemporal.setEstado(resultSet.getInt("estado"));
             ayudaTemporal.setSolicitante(resultSet.getInt("solicitante"));
