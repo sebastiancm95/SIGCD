@@ -1,13 +1,3 @@
--- MySQL Workbench Forward Engineering
-
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
-
--- -----------------------------------------------------
--- Schema sigcd
--- -----------------------------------------------------
-
 CREATE SCHEMA IF NOT EXISTS `sigcd` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
 USE `sigcd` ;
 
@@ -17,8 +7,9 @@ USE `sigcd` ;
 
 CREATE TABLE IF NOT EXISTS `sigcd`.`GradoAcademico` (
     `idGradoAcademico` INT NOT NULL AUTO_INCREMENT,
+    `gradoAcadamico` VARCHAR(45),
     PRIMARY KEY (`idGradoAcademico`)
-)  ENGINE=INNODB DEFAULT CHARACTER SET=UTF8MB4 COLLATE = UTF8MB4_0900_AI_CI;
+);
 
 -- -----------------------------------------------------
 -- Table `sigcd`.`Estado`
@@ -26,8 +17,9 @@ CREATE TABLE IF NOT EXISTS `sigcd`.`GradoAcademico` (
 
 CREATE TABLE IF NOT EXISTS `sigcd`.`Estado` (
     `idEstado` INT NOT NULL AUTO_INCREMENT,
+    `estado` VARCHAR(45),
     PRIMARY KEY (`idEstado`)
-)  ENGINE=INNODB DEFAULT CHARACTER SET=UTF8MB4 COLLATE = UTF8MB4_0900_AI_CI;
+);
 
 -- -----------------------------------------------------
 -- Table `sigcd`.`Estudiante`
@@ -56,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `sigcd`.`Estudiante` (
     PRIMARY KEY (`idEstudiante`),
     CONSTRAINT `fkGradoAcademico` FOREIGN KEY (`gradoAcademico`)
         REFERENCES `sigcd`.`GradoAcademico` (`idGradoAcademico`)
-)  ENGINE=INNODB DEFAULT CHARACTER SET=UTF8MB4 COLLATE = UTF8MB4_0900_AI_CI;
+);
 
 -- -----------------------------------------------------
 -- Table `sigcd`.`Solicitante`
@@ -74,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `sigcd`.`Solicitante` (
     `barrio` VARCHAR(45) NOT NULL,
     `direccionExacta` VARCHAR(45) NOT NULL,
     PRIMARY KEY (`idSolicitante`)
-)  ENGINE=INNODB DEFAULT CHARACTER SET=UTF8MB4 COLLATE = UTF8MB4_0900_AI_CI;
+);
 
 -- -----------------------------------------------------
 -- Table `sigcd`.`AyudaTemporal`
@@ -91,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `sigcd`.`AyudaTemporal` (
         REFERENCES `sigcd`.`solicitante` (`idSolicitante`),
     CONSTRAINT `fkEstadoAY` FOREIGN KEY (`estado`)
         REFERENCES `sigcd`.`Estado` (`idEstado`)
-)  ENGINE=INNODB DEFAULT CHARACTER SET=UTF8MB4 COLLATE = UTF8MB4_0900_AI_CI;
+);
 
 -- -----------------------------------------------------
 -- Table `sigcd`.`BecaMunicipal`
@@ -107,8 +99,6 @@ CREATE TABLE IF NOT EXISTS `sigcd`.`BecaMunicipal` (
         REFERENCES `sigcd`.`estudiante` (`idEstudiante`),
     CONSTRAINT `fkEstadoBM` FOREIGN KEY (`estado`)
         REFERENCES `sigcd`.`Estado` (`idEstado`)
-)  ENGINE=INNODB DEFAULT CHARACTER SET=UTF8MB4 COLLATE = UTF8MB4_0900_AI_CI;
+);  
 
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+insert	into Estado values(1, "Aceptado");

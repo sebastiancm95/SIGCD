@@ -1,27 +1,32 @@
 package SIGCD.Logic.Formulario;
 
-import SIGCD.Logic.Persona.Solicitante;
 import java.sql.Timestamp;
 
 public class AyudaTemporal extends Formulario {
 
-    private Solicitante solicitante;
+    private int solicitante;
     private String motivoAyuda;
 
     public AyudaTemporal() {
     }
 
-    public AyudaTemporal(int IdFormulario, int estado, Timestamp fechaCreacion, Solicitante solicitante, String motivoAyuda) {
+    public AyudaTemporal(int IdFormulario, int estado, Timestamp fechaCreacion, int solicitante, String motivoAyuda) {
         super(IdFormulario, estado, fechaCreacion);
         this.solicitante = solicitante;
         this.motivoAyuda = motivoAyuda;
     }
 
-    public Solicitante getSolicitante() {
+    public AyudaTemporal(int estado, Timestamp fechaCreacion, int solicitante, String motivoAyuda) {
+        super(estado, fechaCreacion);
+        this.solicitante = solicitante;
+        this.motivoAyuda = motivoAyuda;
+    }
+
+    public int getSolicitante() {
         return solicitante;
     }
 
-    public void setSolicitante(Solicitante solicitante) {
+    public void setSolicitante(int solicitante) {
         this.solicitante = solicitante;
     }
 
@@ -35,6 +40,6 @@ public class AyudaTemporal extends Formulario {
 
     @Override
     public String toString() {
-        return "AyudaTemporal{" + "solicitante=" + solicitante + ", motivoAyuda=" + motivoAyuda + '}';
+        return super.toString() + "AyudaTemporal{" + "solicitante=" + solicitante + ", motivoAyuda=" + motivoAyuda + '}';
     }
 }

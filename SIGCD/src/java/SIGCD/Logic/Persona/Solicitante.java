@@ -42,8 +42,7 @@ public class Solicitante extends Persona {
         this.direccion = direccion;
     }
 
-    @Override
     public String toString() {
-        return "Solicitante{" + "telefonoHabitacion=" + telefonoHabitacion + ", telefonoCelular=" + telefonoCelular + ", direccion=" + direccion.toString() + '}';
+        return super.toString() + "Solicitante{" + "telefonoHabitacion=" + telefonoHabitacion + ", telefonoCelular=" + telefonoCelular + ", direccion=" + direccion.toString() + '}';
     }
 }

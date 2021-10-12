@@ -17,6 +17,11 @@ public class Formulario {
         this.fechaCreacion = fechaCreacion;
     }
 
+    public Formulario(int estado, Timestamp fechaCreacion) {
+        this.estado = estado;
+        this.fechaCreacion = fechaCreacion;
+    }
+
     public int getIdFormulario() {
         return IdFormulario;
     }
@@ -32,7 +37,7 @@ public class Formulario {
     public void setEstado(int estado) {
         this.estado = estado;
     }
-    
+
     public Timestamp getFechaCreacion() {
         return fechaCreacion;
     }

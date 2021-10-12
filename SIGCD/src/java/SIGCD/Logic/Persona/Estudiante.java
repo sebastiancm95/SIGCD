@@ -7,14 +7,14 @@ public class Estudiante extends Solicitante {
     private int gradoAcademico;
     private int edad;
     private String fechaNacimiento;
-    private Persona madre;
-    private Persona padre;
+    private String madre;
+    private String padre;
 
     public Estudiante() {
     }
 
-    public Estudiante(int idPersona, String cedula, String nombre, String primerApellido, String segundoApellido, String telefonoHabitacion, String telefonoCelular, Direccion direccion, int gradoAcademico, int edad, String fechaNacimiento, Persona madre, Persona padre) {
-        super(idPersona, cedula, nombre, primerApellido, segundoApellido, telefonoHabitacion, telefonoCelular, direccion);
+    public Estudiante(int idString, String cedula, String nombre, String primerApellido, String segundoApellido, String telefonoHabitacion, String telefonoCelular, Direccion direccion, int gradoAcademico, int edad, String fechaNacimiento, String madre, String padre) {
+        super(idString, cedula, nombre, primerApellido, segundoApellido, telefonoHabitacion, telefonoCelular, direccion);
         this.gradoAcademico = gradoAcademico;
         this.edad = edad;
         this.fechaNacimiento = fechaNacimiento;
@@ -46,24 +46,24 @@ public class Estudiante extends Solicitante {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public Persona getMadre() {
+    public String getMadre() {
         return madre;
     }
 
-    public void setMadre(Persona madre) {
+    public void setMadre(String madre) {
         this.madre = madre;
     }
 
-    public Persona getPadre() {
+    public String getPadre() {
         return padre;
     }
 
-    public void setPadre(Persona padre) {
+    public void setPadre(String padre) {
         this.padre = padre;
     }
 
     @Override
     public String toString() {
-        return "Estudiante{" + "gradoAcademico=" + gradoAcademico + ", edad=" + edad + ", fechaNacimiento=" + fechaNacimiento + ", madre=" + madre + ", padre=" + padre + '}';
+        return super.toString() + "Estudiante{" + "gradoAcademico=" + gradoAcademico + ", edad=" + edad + ", fechaNacimiento=" + fechaNacimiento + ", madre=" + madre + ", padre=" + padre + '}';
     }
 }

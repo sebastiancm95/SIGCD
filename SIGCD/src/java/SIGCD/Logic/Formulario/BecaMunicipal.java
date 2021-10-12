@@ -1,30 +1,34 @@
 package SIGCD.Logic.Formulario;
 
-import SIGCD.Logic.Persona.Estudiante;
 import java.sql.Timestamp;
 
 public class BecaMunicipal extends Formulario {
 
-    private Estudiante estudiante;
+    private int estudiante;
 
     public BecaMunicipal() {
     }
 
-    public BecaMunicipal(int IdFormulario, int estado, Timestamp fechaCreacion, Estudiante estudiante) {
+    public BecaMunicipal(int IdFormulario, int estado, Timestamp fechaCreacion, int estudiante) {
         super(IdFormulario, estado, fechaCreacion);
         this.estudiante = estudiante;
     }
 
-    public Estudiante getEstudiante() {
+    public BecaMunicipal(int estado, Timestamp fechaCreacion, int estudiante) {
+        super(estado, fechaCreacion);
+        this.estudiante = estudiante;
+    }
+
+    public int getEstudiante() {
         return estudiante;
     }
 
-    public void setEstudiante(Estudiante estudiante) {
+    public void setEstudiante(int estudiante) {
         this.estudiante = estudiante;
     }
 
     @Override
     public String toString() {
-        return "BecaMunicipal{" + "estudiante=" + estudiante + '}';
+        return super.toString() + "BecaMunicipal{" + "estudiante=" + estudiante + '}';
     }
 }
