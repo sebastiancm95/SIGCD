@@ -7,7 +7,7 @@ USE `sigcd` ;
 
 CREATE TABLE IF NOT EXISTS `sigcd`.`GradoAcademico` (
     `idGradoAcademico` INT NOT NULL AUTO_INCREMENT,
-    `gradoAcadamico` VARCHAR(45),
+    `nombre` VARCHAR(45),
     PRIMARY KEY (`idGradoAcademico`)
 );
 
@@ -17,8 +17,28 @@ CREATE TABLE IF NOT EXISTS `sigcd`.`GradoAcademico` (
 
 CREATE TABLE IF NOT EXISTS `sigcd`.`Estado` (
     `idEstado` INT NOT NULL AUTO_INCREMENT,
-    `estado` VARCHAR(45),
+    `descripcion` VARCHAR(45),
     PRIMARY KEY (`idEstado`)
+);
+
+-- -----------------------------------------------------
+-- Table `sigcd`.`Distrito`
+-- -----------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `sigcd`.`Distrito` (
+    `idDistrito` INT NOT NULL AUTO_INCREMENT,
+    `nombre` VARCHAR(45),
+    PRIMARY KEY (`idDistrito`)
+);
+
+-- -----------------------------------------------------
+-- Table `sigcd`.`Barrio`
+-- -----------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `sigcd`.`Barrio` (
+    `idBarrio` INT NOT NULL AUTO_INCREMENT,
+    `nombre` VARCHAR(45),
+    PRIMARY KEY (`idBarrio`)
 );
 
 -- -----------------------------------------------------
@@ -33,8 +53,8 @@ CREATE TABLE IF NOT EXISTS `sigcd`.`Estudiante` (
     `segundoApellido` VARCHAR(45) NOT NULL,
     `telefonoHabitacion` VARCHAR(45),
     `telefonoCelular` VARCHAR(45) NOT NULL,
-    `distrito` VARCHAR(45) NOT NULL,
-    `barrio` VARCHAR(45) NOT NULL,
+    `distrito` INT NOT NULL,
+    `barrio` INT NOT NULL,
     `direccionExacta` VARCHAR(45) NOT NULL,
     `gradoAcademico` INT NOT NULL,
     `edad` INT NOT NULL,
@@ -46,6 +66,10 @@ CREATE TABLE IF NOT EXISTS `sigcd`.`Estudiante` (
     `primerApellidoPadre` VARCHAR(45) NOT NULL,
     `segundoApellidoPadre` VARCHAR(45) NOT NULL,
     PRIMARY KEY (`idEstudiante`),
+    CONSTRAINT `fkDistritoE` FOREIGN KEY (`distrito`)
+        REFERENCES `sigcd`.`Distrito` (`idDistrito`),
+    CONSTRAINT `fkBarrioE` FOREIGN KEY (`barrio`)
+        REFERENCES `sigcd`.`Barrio` (`idBarrio`),
     CONSTRAINT `fkGradoAcademico` FOREIGN KEY (`gradoAcademico`)
         REFERENCES `sigcd`.`GradoAcademico` (`idGradoAcademico`)
 );
@@ -62,10 +86,14 @@ CREATE TABLE IF NOT EXISTS `sigcd`.`Solicitante` (
     `segundoApellido` VARCHAR(45) NOT NULL,
     `telefonoHabitacion` VARCHAR(45),
     `telefonoCelular` VARCHAR(45) NOT NULL,
-    `distrito` VARCHAR(45) NOT NULL,
-    `barrio` VARCHAR(45) NOT NULL,
+    `distrito` INT NOT NULL,
+    `barrio` INT NOT NULL,
     `direccionExacta` VARCHAR(45) NOT NULL,
-    PRIMARY KEY (`idSolicitante`)
+    PRIMARY KEY (`idSolicitante`),
+    CONSTRAINT `fkDistritoS` FOREIGN KEY (`distrito`)
+        REFERENCES `sigcd`.`Distrito` (`idDistrito`),
+    CONSTRAINT `fkBarrioS` FOREIGN KEY (`barrio`)
+        REFERENCES `sigcd`.`Barrio` (`idBarrio`)
 );
 
 -- -----------------------------------------------------
@@ -80,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `sigcd`.`AyudaTemporal` (
     `fechaCreacion` TIMESTAMP NOT NULL,
     PRIMARY KEY (`idAyudaTemporal`),
     CONSTRAINT `fkSolicitante` FOREIGN KEY (`solicitante`)
-        REFERENCES `sigcd`.`solicitante` (`idSolicitante`),
+        REFERENCES `sigcd`.`Solicitante` (`idSolicitante`),
     CONSTRAINT `fkEstadoAY` FOREIGN KEY (`estado`)
         REFERENCES `sigcd`.`Estado` (`idEstado`)
 );
@@ -96,9 +124,56 @@ CREATE TABLE IF NOT EXISTS `sigcd`.`BecaMunicipal` (
     `fechaCreacion` TIMESTAMP NOT NULL,
     PRIMARY KEY (`idBecaMunicipal`),
     CONSTRAINT `fkEstudiante` FOREIGN KEY (`estudiante`)
-        REFERENCES `sigcd`.`estudiante` (`idEstudiante`),
+        REFERENCES `sigcd`.`Estudiante` (`idEstudiante`),
     CONSTRAINT `fkEstadoBM` FOREIGN KEY (`estado`)
         REFERENCES `sigcd`.`Estado` (`idEstado`)
 );  
 
-insert	into Estado values(1, "Aceptado");
+-- -----------------------------------------------------
+-- Estados por defecto
+-- -----------------------------------------------------
+
+insert  into Estado values(1, "A espera de revisión");
+insert	into Estado values(2, "Rechazada");
+insert	into Estado values(3, "Aceptada");
+
+-- -----------------------------------------------------
+-- Distritos por defecto
+-- -----------------------------------------------------
+
+insert into Distrito values(1, "San Pablo");
+insert into Distrito values(2, "Rincón de Sabanilla");
+
+-- -----------------------------------------------------
+-- Barrios por defecto
+-- -----------------------------------------------------
+
+insert into Barrio values(1, "Las Cruces");
+insert into Barrio values(2, "Las Joyas");
+insert into Barrio values(3, "María Auxiliadora");
+insert into Barrio values(4, "La Puebla");
+insert into Barrio values(5, "Las Quintanas");
+insert into Barrio values(6, "Uriche");
+insert into Barrio values(7, "La Amelia");
+insert into Barrio values(8, "Las Pastoras");
+insert into Barrio values(9, "Rincón de Ricardo");
+insert into Barrio values(10, "Miraflores");
+insert into Barrio values(11, "Calle Cordero");
+insert into Barrio values(12, "Rinconada");
+
+-- -----------------------------------------------------
+-- Grados académicos por defecto
+-- -----------------------------------------------------
+
+insert into GradoAcademico  values(1, "Primer grado");
+insert into GradoAcademico  values(2, "Segundo grado");
+insert into GradoAcademico  values(3, "Tercer grado");
+insert into GradoAcademico  values(4, "Cuarto grado");
+insert into GradoAcademico  values(5, "Quinto grado");
+insert into GradoAcademico  values(6, "Sexto grado");
+insert into GradoAcademico  values(7, "Sétimo año");
+insert into GradoAcademico  values(8, "Octavo año");
+insert into GradoAcademico  values(9, "Noveno año");
+insert into GradoAcademico  values(10, "Décimo año");
+insert into GradoAcademico  values(11, "Undécimo año");
+insert into GradoAcademico  values(12, "Duodécimo año");
