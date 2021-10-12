@@ -68,7 +68,7 @@ public class BecaMunicipalDAO {
                 );
             }
         } catch (SQLException ex) {
-            Logger.getLogger(AyudaTemporalDA.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AyudaTemporalDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return temp;
     }

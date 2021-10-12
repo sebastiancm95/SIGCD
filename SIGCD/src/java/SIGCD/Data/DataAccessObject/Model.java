@@ -7,11 +7,11 @@ import java.util.ArrayList;
 public class Model {
 
     private static Model uniqueInstance;
-    private AyudaTemporalDA ayudaTemporalDao;
+    private AyudaTemporalDAO ayudaTemporalDao;
     private BecaMunicipalDAO becaMunicipalDao;
 
     public Model() {
-        this.ayudaTemporalDao = new AyudaTemporalDA();
+        this.ayudaTemporalDao = new AyudaTemporalDAO();
         this.becaMunicipalDao = new BecaMunicipalDAO();
     }
 
