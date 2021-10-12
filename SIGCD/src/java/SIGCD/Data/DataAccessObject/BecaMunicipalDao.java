@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class BecaMunicipalDao {
+public class BecaMunicipalDAO {
 
     public BecaMunicipal read(int idBecaMunicipal) throws Exception {
         String sql = "select * from BecaMunicipal where idBecaMunicipal=?";
@@ -68,7 +68,7 @@ public class BecaMunicipalDao {
                 );
             }
         } catch (SQLException ex) {
-            Logger.getLogger(AyudaTemporalDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AyudaTemporalDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return temp;
     }
