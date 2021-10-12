@@ -1,25 +1,32 @@
 package SIGCD.Logic.Persona;
 
-import SIGCD.Logic.Direccion.Direccion;
-
-public class Estudiante extends Solicitante {
+public class Estudiante extends Persona {
 
     private int gradoAcademico;
     private int edad;
     private String fechaNacimiento;
-    private String madre;
-    private String padre;
+    private Solicitante solicitante;
+    private Persona encargado;
 
     public Estudiante() {
     }
 
-    public Estudiante(int idString, String cedula, String nombre, String primerApellido, String segundoApellido, String telefonoHabitacion, String telefonoCelular, Direccion direccion, int gradoAcademico, int edad, String fechaNacimiento, String madre, String padre) {
-        super(idString, cedula, nombre, primerApellido, segundoApellido, telefonoHabitacion, telefonoCelular, direccion);
+    public Estudiante(int idPersona, String cedula, String nombre, String primerApellido, String segundoApellido, int gradoAcademico, int edad, String fechaNacimiento, Solicitante solicitante, Persona encargado) {
+        super(idPersona, cedula, nombre, primerApellido, segundoApellido);
         this.gradoAcademico = gradoAcademico;
         this.edad = edad;
         this.fechaNacimiento = fechaNacimiento;
-        this.madre = madre;
-        this.padre = padre;
+        this.solicitante = solicitante;
+        this.encargado = encargado;
+    }
+
+    public Estudiante(String cedula, String nombre, String primerApellido, String segundoApellido, int gradoAcademico, int edad, String fechaNacimiento, Solicitante solicitante, Persona encargado) {
+        super(cedula, nombre, primerApellido, segundoApellido);
+        this.gradoAcademico = gradoAcademico;
+        this.edad = edad;
+        this.fechaNacimiento = fechaNacimiento;
+        this.solicitante = solicitante;
+        this.encargado = encargado;
     }
 
     public int getGradoAcademico() {
@@ -46,24 +53,32 @@ public class Estudiante extends Solicitante {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public String getMadre() {
-        return madre;
+    public Solicitante getSolicitante() {
+        return solicitante;
     }
 
-    public void setMadre(String madre) {
-        this.madre = madre;
+    public void setSolicitante(Solicitante solicitante) {
+        this.solicitante = solicitante;
     }
 
-    public String getPadre() {
-        return padre;
+    public Persona getEncargado() {
+        return encargado;
     }
 
-    public void setPadre(String padre) {
-        this.padre = padre;
+    public void setEncargado(Persona encargado) {
+        this.encargado = encargado;
+    }
+
+    public int getIdPersona() {
+        return idPersona;
+    }
+
+    public void setIdPersona(int idPersona) {
+        this.idPersona = idPersona;
     }
 
     @Override
     public String toString() {
-        return super.toString() + "Estudiante{" + "gradoAcademico=" + gradoAcademico + ", edad=" + edad + ", fechaNacimiento=" + fechaNacimiento + ", madre=" + madre + ", padre=" + padre + '}';
+        return super.toString() + "Estudiante{" + "gradoAcademico=" + gradoAcademico + ", edad=" + edad + ", fechaNacimiento=" + fechaNacimiento + ", solicitante=" + solicitante + '}';
     }
 }

@@ -17,6 +17,13 @@ public class Solicitante extends Persona {
         this.telefonoCelular = telefonoCelular;
         this.direccion = direccion;
     }
+    
+    public Solicitante(String cedula, String nombre, String primerApellido, String segundoApellido, String telefonoHabitacion, String telefonoCelular, Direccion direccion) {
+        super(cedula, nombre, primerApellido, segundoApellido);
+        this.telefonoHabitacion = telefonoHabitacion;
+        this.telefonoCelular = telefonoCelular;
+        this.direccion = direccion;
+    }
 
     public String getTelefonoHabitacion() {
         return telefonoHabitacion;
@@ -42,7 +49,18 @@ public class Solicitante extends Persona {
         this.direccion = direccion;
     }
 
+    @Override
+    public int getIdPersona() {
+        return idPersona;
+    }
+
+    @Override
+    public void setIdPersona(int idPersona) {
+        this.idPersona = idPersona;
+    }
+
+    @Override
     public String toString() {
-        return super.toString() + "Solicitante{" + "telefonoHabitacion=" + telefonoHabitacion + ", telefonoCelular=" + telefonoCelular + ", direccion=" + direccion.toString() + '}';
+        return "Solicitante{" + "telefonoHabitacion=" + telefonoHabitacion + ", telefonoCelular=" + telefonoCelular + ", direccion=" + direccion + '}';
     }
 }
