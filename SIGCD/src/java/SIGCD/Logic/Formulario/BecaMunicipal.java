@@ -6,20 +6,23 @@ public class BecaMunicipal extends Formulario {
     
     private int solicitante;
     private int estudiante;
+    private int encargado;
 
     public BecaMunicipal() {
     }
 
-    public BecaMunicipal(int IdFormulario, int estado, Timestamp fechaCreacion, int solicitante, int estudiante) {
+    public BecaMunicipal(int IdFormulario, int estado, int solicitante, int estudiante, int encargado, Timestamp fechaCreacion) {
         super(IdFormulario, estado, fechaCreacion);
         this.solicitante = solicitante;
         this.estudiante = estudiante;
+        this.encargado = encargado;
     }
 
-    public BecaMunicipal(int estado, Timestamp fechaCreacion, int solicitante, int estudiante) {
+    public BecaMunicipal(int estado, int solicitante, int estudiante, int encargado,  Timestamp fechaCreacion) {
         super(estado, fechaCreacion);
         this.solicitante = solicitante;
         this.estudiante = estudiante;
+        this.encargado = encargado;
     }
 
     public int getEstudiante() {
@@ -38,8 +41,16 @@ public class BecaMunicipal extends Formulario {
         this.solicitante = solicitante;
     }
 
+    public int getEncargado() {
+        return encargado;
+    }
+
+    public void setEncargado(int encargado) {
+        this.encargado = encargado;
+    }
+
     @Override
     public String toString() {
-        return "BecaMunicipal{" + "solicitante=" + solicitante + ", estudiante=" + estudiante + '}';
-    }
+        return "BecaMunicipal{" + "solicitante=" + solicitante + ", estudiante=" + estudiante + ", encargado=" + encargado + '}';
+    } 
 }

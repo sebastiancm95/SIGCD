@@ -65,9 +65,9 @@ public class AyudaTemporalDAO {
                 temp = new AyudaTemporal(
                         resultSet.getInt(1),
                         resultSet.getInt(2),
-                        resultSet.getTimestamp(3),
-                        resultSet.getInt(4),
-                        resultSet.getString(5)
+                        resultSet.getInt(3),
+                        resultSet.getString(4),
+                        resultSet.getTimestamp(5)
                 );
             }
         } catch (SQLException ex) {

@@ -10,13 +10,13 @@ public class AyudaTemporal extends Formulario {
     public AyudaTemporal() {
     }
 
-    public AyudaTemporal(int IdFormulario, int estado, Timestamp fechaCreacion, int solicitante, String motivoAyuda) {
+    public AyudaTemporal(int IdFormulario, int estado, int solicitante, String motivoAyuda, Timestamp fechaCreacion) {
         super(IdFormulario, estado, fechaCreacion);
         this.solicitante = solicitante;
         this.motivoAyuda = motivoAyuda;
     }
 
-    public AyudaTemporal(int estado, Timestamp fechaCreacion, int solicitante, String motivoAyuda) {
+    public AyudaTemporal(int estado, int solicitante, String motivoAyuda,  Timestamp fechaCreacion) {
         super(estado, fechaCreacion);
         this.solicitante = solicitante;
         this.motivoAyuda = motivoAyuda;

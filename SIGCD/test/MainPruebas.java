@@ -1,8 +1,8 @@
 
 import SIGCD.Data.DataAccessObject.Model;
 import SIGCD.Logic.Formulario.AyudaTemporal;
+import SIGCD.Logic.Formulario.BecaMunicipal;
 import java.sql.Timestamp;
-import java.util.ArrayList;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -17,16 +17,9 @@ public class MainPruebas {
 
     /**
      * @param args the command line arguments
+     * @throws java.lang.Exception
      */
     public static void main(String args[]) throws Exception {
-        Long datetime = System.currentTimeMillis();
-        Timestamp timestamp = new Timestamp(datetime);
-        AyudaTemporal ayudaTemporal = new AyudaTemporal();
-        ayudaTemporal = Model.instance().getAyudaTemporal(1);
-        System.out.println(ayudaTemporal.toString());
-        AyudaTemporal ayudaTemporal2 = new AyudaTemporal(1, timestamp, 1, "Emergencia");
-        Model.instance().createAyudaTemporal(ayudaTemporal2);
-        ArrayList<AyudaTemporal> lista = Model.instance().getAllAyudaTemporal();
-        System.out.println(lista.size());
+
     }
 }
