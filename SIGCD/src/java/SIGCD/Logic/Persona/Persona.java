@@ -18,6 +18,13 @@ public class Persona {
         this.primerApellido = primerApellido;
         this.segundoApellido = segundoApellido;
     }
+    
+    public Persona(String cedula, String nombre, String primerApellido, String segundoApellido) {
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.primerApellido = primerApellido;
+        this.segundoApellido = segundoApellido;
+    }
 
     public int getIdPersona() {
         return idPersona;

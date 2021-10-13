@@ -3,19 +3,22 @@ package SIGCD.Logic.Formulario;
 import java.sql.Timestamp;
 
 public class BecaMunicipal extends Formulario {
-
+    
+    private int solicitante;
     private int estudiante;
 
     public BecaMunicipal() {
     }
 
-    public BecaMunicipal(int IdFormulario, int estado, Timestamp fechaCreacion, int estudiante) {
+    public BecaMunicipal(int IdFormulario, int estado, Timestamp fechaCreacion, int solicitante, int estudiante) {
         super(IdFormulario, estado, fechaCreacion);
+        this.solicitante = solicitante;
         this.estudiante = estudiante;
     }
 
-    public BecaMunicipal(int estado, Timestamp fechaCreacion, int estudiante) {
+    public BecaMunicipal(int estado, Timestamp fechaCreacion, int solicitante, int estudiante) {
         super(estado, fechaCreacion);
+        this.solicitante = solicitante;
         this.estudiante = estudiante;
     }
 
@@ -27,8 +30,16 @@ public class BecaMunicipal extends Formulario {
         this.estudiante = estudiante;
     }
 
+    public int getSolicitante() {
+        return solicitante;
+    }
+
+    public void setSolicitante(int solicitante) {
+        this.solicitante = solicitante;
+    }
+
     @Override
     public String toString() {
-        return super.toString() + "BecaMunicipal{" + "estudiante=" + estudiante + '}';
+        return "BecaMunicipal{" + "solicitante=" + solicitante + ", estudiante=" + estudiante + '}';
     }
 }

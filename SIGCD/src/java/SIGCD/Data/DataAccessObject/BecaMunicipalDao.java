@@ -27,6 +27,7 @@ public class BecaMunicipalDAO {
             BecaMunicipal becaMunicipal = new BecaMunicipal();
             becaMunicipal.setIdFormulario(resultSet.getInt("idBecaMunicipal"));
             becaMunicipal.setEstado(resultSet.getInt("estado"));
+            becaMunicipal.setSolicitante(resultSet.getInt("solicitante"));
             becaMunicipal.setEstudiante(resultSet.getInt("estudiante"));
             becaMunicipal.setFechaCreacion(resultSet.getTimestamp("fechaCreacion"));
             return becaMunicipal;
@@ -36,13 +37,14 @@ public class BecaMunicipalDAO {
     }
 
     public boolean create(BecaMunicipal becaMunicipal) throws SQLException {
-        String ayudaTemporalSQL = "insert into BecaMunicipal (estado,estudiante,fechaCreacion) values(?,?,?)";
+        String ayudaTemporalSQL = "insert into BecaMunicipal (estado,estudiante,fechaCreacion) values(?,?,?,?)";
         Database database = Database.instance();
         PreparedStatement preparedStatement = null;
         preparedStatement = database.getConnection().prepareStatement(ayudaTemporalSQL);
         preparedStatement.setInt(1, becaMunicipal.getEstado());
-        preparedStatement.setInt(2, becaMunicipal.getEstudiante());
-        preparedStatement.setTimestamp(3, becaMunicipal.getFechaCreacion());
+        preparedStatement.setInt(2, becaMunicipal.getSolicitante());
+        preparedStatement.setInt(3, becaMunicipal.getEstudiante());
+        preparedStatement.setTimestamp(4, becaMunicipal.getFechaCreacion());
         if (preparedStatement.executeUpdate() > 0) {
             return true;
         }
@@ -64,7 +66,8 @@ public class BecaMunicipalDAO {
                         resultSet.getInt(1),
                         resultSet.getInt(2),
                         resultSet.getTimestamp(3),
-                        resultSet.getInt(4)
+                        resultSet.getInt(4),
+                        resultSet.getInt(5)
                 );
             }
         } catch (SQLException ex) {
