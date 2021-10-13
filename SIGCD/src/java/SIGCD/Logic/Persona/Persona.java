@@ -25,6 +25,10 @@ public class Persona {
         this.primerApellido = primerApellido;
         this.segundoApellido = segundoApellido;
     }
+    
+     public Persona(int idPersona) {
+        this.idPersona = idPersona;
+    }
 
     public int getIdPersona() {
         return idPersona;

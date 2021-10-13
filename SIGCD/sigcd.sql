@@ -61,26 +61,12 @@ CREATE TABLE IF NOT EXISTS `sigcd`.`Barrio` (
 CREATE TABLE IF NOT EXISTS `sigcd`.`Estudiante` (
     `idEstudiante` INT NOT NULL AUTO_INCREMENT,
     `persona` INT NOT NULL,
-    `telefonoCelular` VARCHAR(45) NOT NULL,
-    `distrito` INT NOT NULL,
-    `barrio` INT NOT NULL,
-    `direccionExacta` VARCHAR(45) NOT NULL,
     `gradoAcademico` INT NOT NULL,
     `edad` INT NOT NULL,
     `fechaNacimiento` VARCHAR(45) NOT NULL,
-    `nombreMadre` VARCHAR(45) NOT NULL,
-    `primerApellidoMadre` VARCHAR(45) NOT NULL,
-    `segundoApellidoMadre` VARCHAR(45) NOT NULL,
-    `nombrePadre` VARCHAR(45) NOT NULL,
-    `primerApellidoPadre` VARCHAR(45) NOT NULL,
-    `segundoApellidoPadre` VARCHAR(45) NOT NULL,
     PRIMARY KEY (`idEstudiante`),
     CONSTRAINT `fkPersonaE` FOREIGN KEY (`persona`)
         REFERENCES `sigcd`.`Persona` (`idPersona`),
-    CONSTRAINT `fkDistritoE` FOREIGN KEY (`distrito`)
-        REFERENCES `sigcd`.`Distrito` (`idDistrito`),
-    CONSTRAINT `fkBarrioE` FOREIGN KEY (`barrio`)
-        REFERENCES `sigcd`.`Barrio` (`idBarrio`),
     CONSTRAINT `fkGradoAcademico` FOREIGN KEY (`gradoAcademico`)
         REFERENCES `sigcd`.`GradoAcademico` (`idGradoAcademico`)
 );
@@ -132,12 +118,15 @@ CREATE TABLE IF NOT EXISTS `sigcd`.`BecaMunicipal` (
     `estado` INT NOT NULL,
     `solicitante` INT NOT NULL,
     `estudiante` INT NOT NULL,
+    `segundoEncargado` INT,
     `fechaCreacion` TIMESTAMP NOT NULL,
     PRIMARY KEY (`idBecaMunicipal`),
     CONSTRAINT `fkSolicitanteBM` FOREIGN KEY (`solicitante`)
         REFERENCES `sigcd`.`Solicitante` (`idSolicitante`),
     CONSTRAINT `fkEstudiante` FOREIGN KEY (`estudiante`)
         REFERENCES `sigcd`.`Estudiante` (`idEstudiante`),
+    CONSTRAINT `fkSegundoEncargado` FOREIGN KEY (`segundoEncargado`)
+        REFERENCES `sigcd`.`Persona` (`idPersona`),
     CONSTRAINT `fkEstadoBM` FOREIGN KEY (`estado`)
         REFERENCES `sigcd`.`Estado` (`idEstado`)
 );  
@@ -190,3 +179,11 @@ insert into GradoAcademico  values(9, "Noveno año");
 insert into GradoAcademico  values(10, "Décimo año");
 insert into GradoAcademico  values(11, "Undécimo año");
 insert into GradoAcademico  values(12, "Duodécimo año");
+
+-- -----------------------------------------------------
+-- Pruebas
+-- -----------------------------------------------------
+
+insert into Persona values(1, "402260762", "Sebastian", "Cabezas", "Madrigal");
+insert into Persona values(2, "666666666", "Andres", "Oviedo", "Herrera");
+

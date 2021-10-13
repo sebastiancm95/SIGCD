@@ -40,12 +40,12 @@ public class Model {
         return becaMunicipalDao.read(Id);
     }
         
-//    public void becaMunicipalCreate(BecaMunicipal result) throws Exception {
-//        becaMunicipalDao.create(result);
-//    }
-//
-//    public ArrayList< BecaMunicipal> getAllBecaMunicipal() throws Exception {
-//        return becaMunicipalDao.readAll();
-//    }
-//
+    public void becaMunicipalCreate(BecaMunicipal result) throws Exception {
+        becaMunicipalDao.create(result);
+    }
+
+    public ArrayList< BecaMunicipal> getAllBecaMunicipal() throws Exception {
+        return becaMunicipalDao.readAll();
+    }
+
 }

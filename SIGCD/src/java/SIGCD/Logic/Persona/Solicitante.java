@@ -12,17 +12,16 @@ public class Solicitante extends Persona {
     public Solicitante() {
     }
 
-    public Solicitante(int idPersona, String cedula, String nombre, String primerApellido, String segundoApellido, int idSolicitante, String telefonoHabitacion, String telefonoCelular, Direccion direccion) {
-        super(idPersona, cedula, nombre, primerApellido, segundoApellido);
+    public Solicitante(int idSolicitante, int idPersona, String telefonoHabitacion, String telefonoCelular, Direccion direccion) {
+        super(idPersona);
         this.idSolicitante = idSolicitante;
         this.telefonoHabitacion = telefonoHabitacion;
         this.telefonoCelular = telefonoCelular;
         this.direccion = direccion;
     }
 
-    public Solicitante(String cedula, String nombre, String primerApellido, String segundoApellido, int idSolicitante, String telefonoHabitacion, String telefonoCelular, Direccion direccion) {
-        super(cedula, nombre, primerApellido, segundoApellido);
-        this.idSolicitante = idSolicitante;
+    public Solicitante(int idPersona, String telefonoHabitacion, String telefonoCelular, Direccion direccion) {
+        super(idPersona);
         this.telefonoHabitacion = telefonoHabitacion;
         this.telefonoCelular = telefonoCelular;
         this.direccion = direccion;
