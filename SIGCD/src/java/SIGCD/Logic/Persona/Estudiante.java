@@ -2,6 +2,7 @@ package SIGCD.Logic.Persona;
 
 public class Estudiante extends Persona {
 
+    private int idEstudiante;
     private int gradoAcademico;
     private int edad;
     private String fechaNacimiento;
@@ -11,8 +12,9 @@ public class Estudiante extends Persona {
     public Estudiante() {
     }
 
-    public Estudiante(int idPersona, String cedula, String nombre, String primerApellido, String segundoApellido, int gradoAcademico, int edad, String fechaNacimiento, Solicitante solicitante, Persona encargado) {
+    public Estudiante(int idPersona, String cedula, String nombre, String primerApellido, String segundoApellido, int idEstudiante, int gradoAcademico, int edad, String fechaNacimiento, Solicitante solicitante, Persona encargado) {
         super(idPersona, cedula, nombre, primerApellido, segundoApellido);
+        this.idEstudiante = idEstudiante;
         this.gradoAcademico = gradoAcademico;
         this.edad = edad;
         this.fechaNacimiento = fechaNacimiento;
@@ -20,8 +22,9 @@ public class Estudiante extends Persona {
         this.encargado = encargado;
     }
 
-    public Estudiante(String cedula, String nombre, String primerApellido, String segundoApellido, int gradoAcademico, int edad, String fechaNacimiento, Solicitante solicitante, Persona encargado) {
+    public Estudiante(String cedula, String nombre, String primerApellido, String segundoApellido, int idEstudiante, int gradoAcademico, int edad, String fechaNacimiento, Solicitante solicitante, Persona encargado) {
         super(cedula, nombre, primerApellido, segundoApellido);
+        this.idEstudiante = idEstudiante;
         this.gradoAcademico = gradoAcademico;
         this.edad = edad;
         this.fechaNacimiento = fechaNacimiento;
@@ -77,8 +80,16 @@ public class Estudiante extends Persona {
         this.idPersona = idPersona;
     }
 
+    public int getIdEstudiante() {
+        return idEstudiante;
+    }
+
+    public void setIdEstudiante(int idEstudiante) {
+        this.idEstudiante = idEstudiante;
+    }
+
     @Override
     public String toString() {
-        return super.toString() + "Estudiante{" + "gradoAcademico=" + gradoAcademico + ", edad=" + edad + ", fechaNacimiento=" + fechaNacimiento + ", solicitante=" + solicitante + '}';
+        return "Estudiante{" + "idEstudiante=" + idEstudiante + ", gradoAcademico=" + gradoAcademico + ", edad=" + edad + ", fechaNacimiento=" + fechaNacimiento + ", solicitante=" + solicitante + ", encargado=" + encargado + '}';
     }
 }

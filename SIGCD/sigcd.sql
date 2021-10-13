@@ -5,6 +5,19 @@ USE `sigcd` ;
 -- Table `sigcd`.`GradoAcademicoAA`
 -- -----------------------------------------------------
 
+CREATE TABLE IF NOT EXISTS `sigcd`.`Persona` (
+    `idPersona` INT NOT NULL AUTO_INCREMENT,
+    `cedula` VARCHAR(45) NOT NULL,
+    `nombre` VARCHAR(45) NOT NULL,
+    `primerApellido` VARCHAR(45) NOT NULL,
+    `segundoApellido` VARCHAR(45) NOT NULL,
+    PRIMARY KEY (`idPersona`)
+);
+
+-- -----------------------------------------------------
+-- Table `sigcd`.`GradoAcademicoAA`
+-- -----------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS `sigcd`.`GradoAcademico` (
     `idGradoAcademico` INT NOT NULL AUTO_INCREMENT,
     `nombre` VARCHAR(45),
@@ -47,11 +60,7 @@ CREATE TABLE IF NOT EXISTS `sigcd`.`Barrio` (
 
 CREATE TABLE IF NOT EXISTS `sigcd`.`Estudiante` (
     `idEstudiante` INT NOT NULL AUTO_INCREMENT,
-    `cedula` VARCHAR(45) NOT NULL,
-    `nombre` VARCHAR(45) NOT NULL,
-    `primerApellido` VARCHAR(45) NOT NULL,
-    `segundoApellido` VARCHAR(45) NOT NULL,
-    `telefonoHabitacion` VARCHAR(45),
+    `persona` INT NOT NULL,
     `telefonoCelular` VARCHAR(45) NOT NULL,
     `distrito` INT NOT NULL,
     `barrio` INT NOT NULL,
@@ -66,6 +75,8 @@ CREATE TABLE IF NOT EXISTS `sigcd`.`Estudiante` (
     `primerApellidoPadre` VARCHAR(45) NOT NULL,
     `segundoApellidoPadre` VARCHAR(45) NOT NULL,
     PRIMARY KEY (`idEstudiante`),
+    CONSTRAINT `fkPersonaE` FOREIGN KEY (`persona`)
+        REFERENCES `sigcd`.`Persona` (`idPersona`),
     CONSTRAINT `fkDistritoE` FOREIGN KEY (`distrito`)
         REFERENCES `sigcd`.`Distrito` (`idDistrito`),
     CONSTRAINT `fkBarrioE` FOREIGN KEY (`barrio`)
@@ -80,16 +91,15 @@ CREATE TABLE IF NOT EXISTS `sigcd`.`Estudiante` (
 
 CREATE TABLE IF NOT EXISTS `sigcd`.`Solicitante` (
     `idSolicitante` INT NOT NULL AUTO_INCREMENT,
-    `cedula` VARCHAR(45) NOT NULL,
-    `nombre` VARCHAR(45) NOT NULL,
-    `primerApellido` VARCHAR(45) NOT NULL,
-    `segundoApellido` VARCHAR(45) NOT NULL,
+    `persona` INT NOT NULL,
     `telefonoHabitacion` VARCHAR(45),
     `telefonoCelular` VARCHAR(45) NOT NULL,
     `distrito` INT NOT NULL,
     `barrio` INT NOT NULL,
     `direccionExacta` VARCHAR(45) NOT NULL,
     PRIMARY KEY (`idSolicitante`),
+    CONSTRAINT `fkPersonaS` FOREIGN KEY (`persona`)
+        REFERENCES `sigcd`.`Persona` (`idPersona`),
     CONSTRAINT `fkDistritoS` FOREIGN KEY (`distrito`)
         REFERENCES `sigcd`.`Distrito` (`idDistrito`),
     CONSTRAINT `fkBarrioS` FOREIGN KEY (`barrio`)
@@ -107,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `sigcd`.`AyudaTemporal` (
     `motivoAyuda` VARCHAR(200) NOT NULL,
     `fechaCreacion` TIMESTAMP NOT NULL,
     PRIMARY KEY (`idAyudaTemporal`),
-    CONSTRAINT `fkSolicitante` FOREIGN KEY (`solicitante`)
+    CONSTRAINT `fkSolicitanteAT` FOREIGN KEY (`solicitante`)
         REFERENCES `sigcd`.`Solicitante` (`idSolicitante`),
     CONSTRAINT `fkEstadoAY` FOREIGN KEY (`estado`)
         REFERENCES `sigcd`.`Estado` (`idEstado`)
@@ -120,9 +130,12 @@ CREATE TABLE IF NOT EXISTS `sigcd`.`AyudaTemporal` (
 CREATE TABLE IF NOT EXISTS `sigcd`.`BecaMunicipal` (
     `idBecaMunicipal` INT NOT NULL AUTO_INCREMENT,
     `estado` INT NOT NULL,
+    `solicitante` INT NOT NULL,
     `estudiante` INT NOT NULL,
     `fechaCreacion` TIMESTAMP NOT NULL,
     PRIMARY KEY (`idBecaMunicipal`),
+    CONSTRAINT `fkSolicitanteBM` FOREIGN KEY (`solicitante`)
+        REFERENCES `sigcd`.`Solicitante` (`idSolicitante`),
     CONSTRAINT `fkEstudiante` FOREIGN KEY (`estudiante`)
         REFERENCES `sigcd`.`Estudiante` (`idEstudiante`),
     CONSTRAINT `fkEstadoBM` FOREIGN KEY (`estado`)
